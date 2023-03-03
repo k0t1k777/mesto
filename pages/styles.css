@@ -1,0 +1,147 @@
+.page {
+  margin: 0 auto;
+  padding: 0;
+  background-color: black;
+  max-width: 1280px;
+  min-width: 320px;
+  width: calc(100% - 2*200px);
+  Font-family: Inter;
+}
+
+/* 1280 */
+.header {
+  padding: 45px 0 0;
+  margin: 0 auto;
+  border-bottom: 1px solid #545454;
+  min-height: 74px;
+}
+
+/* 1280 */
+.profile {
+  padding: 40px 0 0;
+  margin: 0 auto;
+  display: flex;
+}
+
+.profile__container {
+  min-height: 128px;
+  width: 169px;
+  margin: 4px 0 4px 23px;
+}
+
+.profile__info {
+  margin-left: 4px;
+}
+
+.profile__wrapper {
+  display: flex;
+}
+
+.profile__edit-button {
+  height: 24px;
+  width: 24px;
+  margin: 15px 0 0 18px;
+  align-self: center;
+  background-image: url(../images/Pen.svg);
+  background-color: black;
+  border: 1px solid white;
+}
+
+.profile__avatar {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+
+.section-title {
+  margin: 22px 0 16px;
+  Font-style: Medium;
+  Font-size: 42px;
+  Line-height: 48px;
+  color: white;
+}
+
+.section-subtitle {
+  margin: 0;
+  Font-size: 18px;
+  Line-height: 22px;
+  color: white;
+}
+
+.profile__add-button {
+  margin-top: 35px;
+  padding: 0;
+  height: 50px;
+  width: 150px;
+  display: flex;
+  background-image: url(../images/Add\ Button.png);
+  background-color: black;
+  border: 1px solid white;
+  margin-left: auto;
+}
+
+/* 1280 */
+.elements {
+  padding: 51px 0 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+  grid-template-rows: auto;
+  /* justify-items: stretch; */
+  gap: 20px 17px;
+}
+
+.elements__element {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 2%;
+  width: 282px;
+  max-height: 361px;
+
+}
+
+.elements__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center ;
+}
+
+.elements__name {
+  Font-style: Black;
+  Font-size: 24px;
+  Line-height: 100%;
+  margin: 25px 0 31px 21px;
+
+}
+
+.elements__image {
+  width: 100%;
+  max-height: 284px;
+  object-fit: cover;
+  border-radius: 2% 2% 0 0;
+}
+
+.elements__button {
+  background-image: url(../images/Heart.png);
+  background-color: white;
+  width: 22px;
+  height: 19px;
+  border: 0;
+  margin-right: 20px;
+}
+
+/* 1280 */
+.footer {
+  padding: 67px 0 60px;
+  margin: 0 auto;
+}
+
+.footer__copyright {
+  color: #545454;
+  Font-style: Regular;
+  Font-size: 18px;
+  Line-height: 100%;
+  margin: 0;
+  padding: 0;
+}
