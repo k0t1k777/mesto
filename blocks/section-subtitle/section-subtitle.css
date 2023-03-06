@@ -1,7 +1,7 @@
 .section-subtitle {
   margin: 0;
-  Font-size: 18px;
-  Line-height: 22px;
+  font-size: 18px;
+  line-height: 22px;
   font-weight: 400;
   color: white;
   text-overflow: ellipsis;
@@ -13,8 +13,8 @@
 /* 768 */
 @media screen and (max-width: 768px) {
   .section-subtitle {
-    Font-size: 14px;
-    Line-height: 17px;
+    font-size: 14px;
+    line-height: 17px;
     max-width: 230px;
     }
   }
