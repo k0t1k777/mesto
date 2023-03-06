@@ -1,0 +1,15 @@
+.popap__title {
+  Font-size: 24px;
+  Line-height: 29px;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+}
+
+/* 540 */
+@media screen and (max-width: 540px) {
+  .popap__title {
+    font-size: 18px;
+    line-height: 22px;
+    }
+  }

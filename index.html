@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
   <link rel="stylesheet" href="./pages/index.css">
-  <link rel="stylesheet" href="./pages/styles.css">
 </head>
 <body class="page">
   <header class="header">
@@ -19,11 +18,11 @@
         <div class="profile__info">
           <div class="profile__wrapper">
             <h1 class="section-title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button" alt="иконка ручки"></button>
+            <button class="profile__edit-button"></button>
            </div>
           <p class="section-subtitle">Исследователь океана</p>
       </div>
-      <button class="profile__add-button" alt="иконка кнопки"></button>
+      <button class="profile__add-button"></button>
     </section>
     <section class="elements">
       <div class="elements__element">
@@ -77,31 +76,14 @@
   <section class="popap">
     <div class="popap__container">
       <button class="popap__close"></button>
-      <form action="" class="popap__form">
+      <form class="popap__form">
         <h2 class="popap__title">Редактировать профиль</h2>
-        <input class="popap__name" id="popap__name" type="text" value></input>
-        <input class="popap__job" id="popap__job" type="text" value></input>
-        <button type="text" class="submit__button">Сохранить</button>
+        <input class="popap__name" id="popap__name" type="text">
+        <input class="popap__job" id="popap__job" type="text">
+        <button class="submit__button">Сохранить</button>
       </form>
     </div>
   </section>
 <script src="./scripts/index.js"></script>
 </body>
-
 </html>
-
-<!-- <section class="popap">
-  <div class="popap__container">
-    <button class="popap__close"></button>
-    <form action="" class="popap__form">
-      <h2 class="popap__title">Редактировать профиль</h2>
-      <fieldset class="popap__name">
-          dffdfs
-      </fieldset>
-      <fieldset class="popap__job">
-          sdfsdfsdf
-      </fieldset>
-      <button type="text" class="submit__button">Сохранить</button>
-    </form>
-  </div>
-</section> -->

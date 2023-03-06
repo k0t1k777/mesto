@@ -1,0 +1,27 @@
+.popap__close {
+    background-image: url(../../../images/Close\ Icon.svg);
+    background-color: black;
+    border: none;
+    position: absolute;
+    right: -35px;
+    top: -35px;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .popap__close:hover {
+    opacity: 80%;
+  }
+
+  /* 540 */
+  @media screen and (max-width: 540px) {
+    .popap__close {
+      background-position: center;
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      right: 0;
+      }
+    }

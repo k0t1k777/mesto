@@ -1,0 +1,19 @@
+.profile__container {
+  min-height: 128px;
+  width: 169px;
+  margin: 4px 4px 4px 0;
+}
+
+/* 879 */
+@media screen and (max-width: 879px) {
+  .profile__container {
+   margin: 0 auto 0;
+    }
+}
+
+/* 600 */
+@media screen and (max-width: 600px) {
+  .profile__container {
+   width: 120px;
+    }
+}

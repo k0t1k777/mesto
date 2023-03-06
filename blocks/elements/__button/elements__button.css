@@ -1,0 +1,20 @@
+.elements__button {
+  background-image: url(../../../images/Heart.svg);
+  background-color: white;
+  width: 22px;
+  height: 19px;
+  border: 0;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.elements__button:hover {
+  opacity: 80%;
+}
+
+/* 540 */
+@media screen and (max-width: 540px) {
+  .elements__button {
+    margin-right: 20px;
+    }
+  }

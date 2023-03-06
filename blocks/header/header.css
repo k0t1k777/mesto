@@ -1,31 +1,15 @@
 /* 1280 */
 .header {
+  max-width: 880px;
+  padding: 45px 0 0;
   margin: 0 auto;
-  padding: 28px 0 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  width: calc(100% - 2 * 48px);
+  border-bottom: 1px solid #545454;
 }
 
 /* 1024 */
 @media screen and (max-width: 1024px) {
   .header {
-    max-width: 100%;
-  }
-}
-
-/* 768 */
-@media screen and (max-width: 768px) {
-  .header {
-    width: calc(100% - 2*24px);
-  }
-}
-
-/* 420 */
-@media screen and (max-width: 420px) {
-  .header {
-    width: calc(100% - 2*16px);
-    padding: 16px 0 0;
+    padding: 27px 0 0 28px;
+    margin: 0 auto;
   }
 }

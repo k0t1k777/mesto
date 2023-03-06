@@ -1,0 +1,29 @@
+.section-subtitle {
+  margin: 0;
+  Font-size: 18px;
+  Line-height: 22px;
+  font-weight: 400;
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 336px;
+}
+
+/* 768 */
+@media screen and (max-width: 768px) {
+  .section-subtitle {
+    Font-size: 14px;
+    Line-height: 17px;
+    max-width: 230px;
+    }
+  }
+
+  /* 583px */
+@media screen and (max-width: 583px) {
+  .section-subtitle {
+   margin: 0 auto 36px;
+   text-align: center;
+   max-width: 189px;
+    }
+  }

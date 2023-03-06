@@ -1,0 +1,28 @@
+.section-title {
+  margin: 22px 0 16px;
+  font-weight: 500;
+  Font-size: 42px;
+  Line-height: 48px;
+  color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 336px;
+}
+
+/* 768 */
+@media screen and (max-width: 768px) {
+  .section-title {
+    Font-size: 27px;
+    Line-height: 33px;
+    max-width: 230px;
+    }
+  }
+
+/* 583px */
+@media screen and (max-width: 583px) {
+  .section-title {
+   margin: 22px auto 14px;
+   max-width: 189px;
+    }
+  }
