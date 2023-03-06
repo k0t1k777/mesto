@@ -20,7 +20,7 @@
 @import url(../blocks/section-title/section-title.css);
 @import url(../blocks/section-subtitle/section-subtitle.css);
 @import url(../blocks/popap/popap.css);
-@import url(../blocks/popap/__button/submit__button.css);
+@import url(../blocks/popap/__submit-button/popap__submit-button.css);
 @import url(../blocks/popap/__close/popap__close.css);
 @import url(../blocks/popap/__container/__container.css);
 @import url(../blocks/popap/__field/popap__field.css);

@@ -9,7 +9,6 @@ const valueNameInput = document.querySelector(".section-subtitle");
 
 const openPopap = function () {
     popapElement.classList.add("popap_opened");
-    console.log('Open popap clicked');
   };
   const closePopap = function () {
     popapElement.classList.remove("popap_opened");

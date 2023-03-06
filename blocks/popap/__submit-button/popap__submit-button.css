@@ -1,4 +1,4 @@
-.submit__button {
+.popap__submit-button {
   margin-top: 48px;
   padding: 14px 0 18px;
   font-size: 18px;
@@ -14,13 +14,13 @@
 
 /* 540 */
 @media screen and (max-width: 540px) {
-  .submit__button {
+  .popap__submit-button {
     margin-top: 45px;
     font-size: 14px;
     line-height: 17px;
     }
   }
 
-  .submit__button:hover {
+  .popap__submit-button:hover {
     opacity: 80%;
   }
