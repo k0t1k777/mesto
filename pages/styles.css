@@ -4,29 +4,82 @@
   background-color: black;
   max-width: 1280px;
   min-width: 320px;
-  width: calc(100% - 2*200px);
-  Font-family: Inter;
+  Font-family: 'Inter', Arial, sans-serif;
 }
 
 /* 1280 */
 .header {
+  max-width: 880px;
   padding: 45px 0 0;
   margin: 0 auto;
   border-bottom: 1px solid #545454;
-  min-height: 74px;
+}
+
+/* 1024 */
+@media screen and (max-width: 1024px) {
+  .header {
+    padding: 27px 0 0 28px;
+    margin: 0 auto;
+  }
+}
+
+/* 1280 */
+.header__logo {
+  margin: 0 0 41px;
+}
+
+/* 1024 */
+@media screen and (max-width: 1024px) {
+  .header__logo {
+    margin: 0 0 32px;
+    }
+  }
+
+/* 583 */
+@media screen and (max-width: 583px) {
+.header__logo {
+  background-size: 142px 43px;
+  width: 103px;
+  height: 24px;
+  }
 }
 
 /* 1280 */
 .profile {
+  max-width: 880px;
   padding: 40px 0 0;
   margin: 0 auto;
   display: flex;
+}
+
+/* 583px */
+@media screen and (max-width: 583px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    padding: 38px 0 0;
+    }
 }
 
 .profile__container {
   min-height: 128px;
   width: 169px;
   margin: 4px 0 4px 23px;
+}
+
+/* 600 */
+@media screen and (max-width: 600px) {
+  .profile__container {
+   width: 120px;
+   margin: 0 auto 0;
+    }
+}
+
+/* 583px */
+@media screen and (max-width: 583px) {
+  .profile__container {
+    margin: 0 auto 0;
+    }
 }
 
 .profile__info {
@@ -37,57 +90,142 @@
   display: flex;
 }
 
+/* 583px */
+@media screen and (max-width: 583px) {
+  .profile__wrapper {
+    margin: 0 auto;
+    }
+}
+
 .profile__edit-button {
   height: 24px;
   width: 24px;
-  margin: 15px 0 0 18px;
   align-self: center;
-  background-image: url(../images/Pen.svg);
+  background-image: url(../images/Vector-pen.svg);
   background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
   border: 1px solid white;
+  margin: 15px auto 0 18px;
+  cursor: pointer;
+}
+
+.profile__edit-button:hover {
+  opacity: 80%;
+  }
+
+/* 583px */
+@media screen and (max-width: 583px) {
+  .profile__edit-button {
+    height: 18px;
+    width: 18px;
+    background-position: 40%;
+    margin: 0 auto 0 10px;
+    transform: translateY(5px);
+    }
 }
 
 .profile__avatar {
   height: 120px;
   width: 120px;
   border-radius: 50%;
+  display: block;
 }
 
 .section-title {
   margin: 22px 0 16px;
-  Font-style: Medium;
+  font-weight: 500;
   Font-size: 42px;
   Line-height: 48px;
   color: white;
 }
 
+/* 768 */
+@media screen and (max-width: 768px) {
+  .section-title {
+    Font-size: 27px;
+    Line-height: 33px;
+    }
+  }
+
+/* 583px */
+@media screen and (max-width: 583px) {
+  .section-title {
+   margin: 22px auto 14px;
+    }
+  }
+
 .section-subtitle {
   margin: 0;
   Font-size: 18px;
   Line-height: 22px;
+  font-weight: 400;
   color: white;
+
 }
+
+/* 768 */
+@media screen and (max-width: 768px) {
+  .section-subtitle {
+    Font-size: 14px;
+    Line-height: 17px;
+    }
+  }
+
+  /* 583px */
+@media screen and (max-width: 583px) {
+  .section-subtitle {
+   margin: 0 auto 36px;
+   text-align: center;
+    }
+  }
 
 .profile__add-button {
   margin-top: 35px;
   padding: 0;
   height: 50px;
   width: 150px;
-  display: flex;
-  background-image: url(../images/Add\ Button.png);
+  background-image: url(../images/Vector-plus.svg);
+  background-repeat: no-repeat;
   background-color: black;
+  background-position: center;
+  border-radius: 2px;
   border: 1px solid white;
   margin-left: auto;
+  cursor: pointer;
 }
+
+.profile__add-button:hover {
+opacity: 80%;
+}
+
+/* 879 */
+@media screen and (max-width: 879px) {
+  .profile__add-button {
+    margin: auto;
+   }
+ }
+
+/* 583px */
+@media screen and (max-width: 583px) {
+  .profile__add-button {
+    background-color: black;
+    background-position: center;
+    max-width: 282px;
+    width: 100%;
+    margin: 0 auto;
+    }
+  }
 
 /* 1280 */
 .elements {
-  padding: 51px 0 0;
+  max-width: 880px;
+  padding: 36px 0 0;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+  grid-template-columns: repeat(auto-fit, 282px);
   grid-template-rows: auto;
-  /* justify-items: stretch; */
+  justify-content: center;
   gap: 20px 17px;
 }
 
@@ -95,10 +233,9 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  border-radius: 2%;
+  border-radius: 10px;
   width: 282px;
   max-height: 361px;
-
 }
 
 .elements__wrapper {
@@ -110,38 +247,235 @@
 .elements__name {
   Font-style: Black;
   Font-size: 24px;
-  Line-height: 100%;
+  Line-height: 29px;
+  font-weight: 900;
   margin: 25px 0 31px 21px;
-
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .elements__image {
   width: 100%;
   max-height: 284px;
   object-fit: cover;
-  border-radius: 2% 2% 0 0;
+  border-radius: 10px 10px 0 0;
+  display: block;
 }
 
 .elements__button {
-  background-image: url(../images/Heart.png);
+  background-image: url(../images/Heart.svg);
   background-color: white;
   width: 22px;
   height: 19px;
   border: 0;
-  margin-right: 20px;
+  margin-right: 15px;
+  cursor: pointer;
+
 }
+
+.profile__edit-button_active {
+  background-color: black;
+}
+
+.elements__button:hover {
+  opacity: 80%;
+}
+
+/* 540 */
+@media screen and (max-width: 540px) {
+  .elements__button {
+    margin-right: 20px;
+
+    }
+  }
 
 /* 1280 */
 .footer {
   padding: 67px 0 60px;
   margin: 0 auto;
+  max-width: 880px;
 }
+
+/* 1024 */
+@media screen and (max-width: 1024px) {
+  .footer {
+    margin-left: 19px;
+    padding: 48px 0 36px;
+    }
+  }
 
 .footer__copyright {
   color: #545454;
-  Font-style: Regular;
+  font-weight: 400;
   Font-size: 18px;
-  Line-height: 100%;
+  Line-height: 22px;
   margin: 0;
   padding: 0;
 }
+
+/* 540 */
+@media screen and (max-width: 540px) {
+  .footer__copyright {
+    Font-size: 14px;
+    }
+  }
+
+.popap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  z-index: 1;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,.5);
+  width: 100%;
+  height: 100%;
+}
+
+.popap_opened {
+  display: flex;
+}
+
+.popap__container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 34px 36px 37px;
+  width: 430px;
+  height: 330px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* 540 */
+@media screen and (max-width: 540px) {
+  .popap__container {
+    width: 282px;
+    height: 322px;
+    padding: 25px 22px 25px;
+    }
+  }
+
+  .popap__close {
+    background-image: url(../images/Close\ Icon.svg);
+    background-color: black;
+    border: none;
+    position: absolute;
+    right: -35px;
+    top: -35px;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .popap__close:hover {
+    opacity: 80%;
+  }
+
+
+
+  /* 540 */
+  @media screen and (max-width: 540px) {
+    .popap__close {
+      background-position: center;
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      right: 0;
+      }
+    }
+
+.popap__form {
+  /* margin-top: 34px; */
+}
+
+.popap__title {
+  Font-size: 24px;
+  Line-height: 29px;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+}
+
+/* 540 */
+@media screen and (max-width: 540px) {
+  .popap__title {
+    font-size: 18px;
+    line-height: 22px;
+    }
+  }
+
+.popap__field {
+  font-weight: 400;
+  Font-size: 14px;
+  Line-height: 17px;
+}
+
+.popap__field1 {
+  margin-top: 54px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  opacity: 20%;
+  padding: 0;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+/* 540 */
+@media screen and (max-width: 540px) {
+  .popap__field1 {
+    margin-top: 75px;
+    }
+  }
+
+.popap__field2 {
+  margin-top: 30px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  opacity: 20%;
+  padding: 0;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+/* 540 */
+/* @media screen and (max-width: 540px) {
+  .popap__field2 {
+    font-size: 14px;
+    line-height: 17px;
+    }
+  } */
+
+.submit__button {
+  margin-top: 48px;
+  padding: 14px 0 18px;
+  Font-size: 18px;
+  Line-height: 22px;
+  font-weight: 400;
+  background-color: black;
+  border-radius: 2px;
+  border: none;
+  color: white;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* 540 */
+@media screen and (max-width: 540px) {
+  .submit__button {
+    margin-top: 45px;
+    font-size: 14px;
+    line-height: 17px;
+    }
+  }
+
+  .submit__button:hover {
+    opacity: 80%;
+  }
+
+

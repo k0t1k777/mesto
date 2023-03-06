@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +7,9 @@
   <link rel="stylesheet" href="./pages/index.css">
   <link rel="stylesheet" href="./pages/styles.css">
 </head>
-
 <body class="page">
   <header class="header">
-    <img src="./images/logo.svg" alt="логотип Место">
-
+    <img src="./images/logo.svg" class="header__logo" alt="логотип Место">
   </header>
   <main class="container">
     <section class="profile">
@@ -27,61 +24,72 @@
           <p class="section-subtitle">Исследователь океана</p>
       </div>
       <button class="profile__add-button" alt="иконка кнопки"></button>
-
     </section>
-
     <section class="elements">
       <div class="elements__element">
         <img src="./images/Karachevsk.png" class="elements__image" alt="Старый разрушенный монастырь">
         <div class="elements__wrapper">
-          <h3 class="elements__name">Карачевск</h3>
+          <h2 class="elements__name">Карачевск</h2>
           <button class="elements__button"></button>
         </div>
       </div>
       <div class="elements__element">
         <img src="./images/Elbrus.png" class="elements__image" alt="Вид на Эльбрус издалека">
         <div class="elements__wrapper">
-          <h3 class="elements__name">Гора Эльбрус</h3>
+          <h2 class="elements__name">Гора Эльбрус</h2>
           <button class="elements__button"></button>
         </div>
       </div>
       <div class="elements__element">
         <img src="./images/Dombai.png" class="elements__image" alt="Пик Домбай">
         <div class="elements__wrapper">
-          <h3 class="elements__name">Домбай</h3>
+          <h2 class="elements__name">Домбай</h2>
           <button class="elements__button"></button>
         </div>
       </div>
       <div class="elements__element">
         <img src="./images/Karachevsk.png" class="elements__image" alt="Старый разрушенный монастырь">
         <div class="elements__wrapper">
-          <h3 class="elements__name">Карачевск</h3>
+          <h2 class="elements__name">Карачевск</h2>
           <button class="elements__button"></button>
          </div>
       </div>
       <div class="elements__element">
         <img src="./images/Elbrus.png" class="elements__image" alt="Вид на Эльбрус издалека">
         <div class="elements__wrapper">
-          <h3 class="elements__name">Гора Эльбрус</h3>
+          <h2 class="elements__name">Гора Эльбрус</h2>
           <button class="elements__button"></button>
         </div>
       </div>
       <div class="elements__element">
         <img src="./images/Dombai.png" class="elements__image" alt="Пик Домбай">
         <div class="elements__wrapper">
-          <h3 class="elements__name">Домбай</h3>
+          <h2 class="elements__name">Домбай</h2>
           <button class="elements__button"></button>
         </div>
       </div>
      </section>
-
   </main>
   <footer class="footer">
-    <h3 class="footer__copyright">© 2020 Mesto Russia</h3>
+    <h3 class="footer__copyright">© 2023 Mesto Russia</h3>
   </footer>
-
-<script></script>
-
+<!-- Попап -->
+  <section class="popap">
+    <div class="popap__container">
+      <button class="popap__close"></button>
+      <form action="" class="popap__form">
+        <h2 class="popap__title">Редактировать профиль</h2>
+        <fieldset class="popap__field1">
+            dffdfs<!-- Имя -->
+        </fieldset>
+        <fieldset class="popap__field2">
+            sdfsdfsdf<!-- О Себе -->
+        </fieldset>
+        <button type="text" class="submit__button">Сохранить</button>
+      </form>
+    </div>
+  </section>
+<script src="./scripts/index.js"></script>
 </body>
 
 </html>
