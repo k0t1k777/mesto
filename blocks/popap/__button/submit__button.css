@@ -1,8 +1,8 @@
 .submit__button {
   margin-top: 48px;
   padding: 14px 0 18px;
-  Font-size: 18px;
-  Line-height: 22px;
+  font-size: 18px;
+  line-height: 22px;
   font-weight: 400;
   background-color: black;
   border-radius: 2px;
@@ -23,3 +23,4 @@
 
   .submit__button:hover {
     opacity: 80%;
+  }
