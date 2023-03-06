@@ -64,7 +64,7 @@
 .profile__container {
   min-height: 128px;
   width: 169px;
-  margin: 4px 0 4px 23px;
+  margin: 4px 4px 4px 0;
 }
 
 /* 600 */
@@ -72,13 +72,6 @@
   .profile__container {
    width: 120px;
    margin: 0 auto 0;
-    }
-}
-
-/* 583px */
-@media screen and (max-width: 583px) {
-  .profile__container {
-    margin: 0 auto 0;
     }
 }
 
@@ -130,7 +123,7 @@
   width: 120px;
   border-radius: 50%;
   display: block;
-}
+  }
 
 .section-title {
   margin: 22px 0 16px;
@@ -138,6 +131,10 @@
   Font-size: 42px;
   Line-height: 48px;
   color: white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 336px;
 }
 
 /* 768 */
@@ -145,6 +142,7 @@
   .section-title {
     Font-size: 27px;
     Line-height: 33px;
+    max-width: 230px;
     }
   }
 
@@ -152,6 +150,7 @@
 @media screen and (max-width: 583px) {
   .section-title {
    margin: 22px auto 14px;
+   max-width: 189px;
     }
   }
 
@@ -161,7 +160,10 @@
   Line-height: 22px;
   font-weight: 400;
   color: white;
-
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 336px;
 }
 
 /* 768 */
@@ -169,6 +171,7 @@
   .section-subtitle {
     Font-size: 14px;
     Line-height: 17px;
+    max-width: 230px;
     }
   }
 
@@ -177,6 +180,7 @@
   .section-subtitle {
    margin: 0 auto 36px;
    text-align: center;
+   max-width: 189px;
     }
   }
 
@@ -343,7 +347,7 @@ opacity: 80%;
   background-color: white;
   border-radius: 10px;
   padding: 34px 36px 37px;
-  width: 430px;
+  max-width: 430px;
   height: 330px;
   box-sizing: border-box;
   position: relative;
@@ -412,44 +416,47 @@ opacity: 80%;
   font-weight: 400;
   Font-size: 14px;
   Line-height: 17px;
-}
+  }
 
-.popap__field1 {
+.popap__name {
   margin-top: 54px;
   border-top: none;
   border-left: none;
   border-right: none;
-  opacity: 20%;
   padding: 0;
   font-size: 14px;
   line-height: 17px;
+  width: 358px;
+  border-bottom: 1px solid rgba(0,0,0,.3);
 }
 
 /* 540 */
 @media screen and (max-width: 540px) {
-  .popap__field1 {
+  .popap__name {
     margin-top: 75px;
+    width: 238px;
     }
   }
 
-.popap__field2 {
+.popap__job {
   margin-top: 30px;
   border-top: none;
   border-left: none;
   border-right: none;
-  opacity: 20%;
   padding: 0;
   font-size: 14px;
   line-height: 17px;
+  width: 358px;
+  border-bottom: 1px solid rgba(0,0,0,.3);
+  ;
 }
 
 /* 540 */
-/* @media screen and (max-width: 540px) {
-  .popap__field2 {
-    font-size: 14px;
-    line-height: 17px;
+@media screen and (max-width: 540px) {
+  .popap__job {
+    width: 238px;
     }
-  } */
+  }
 
 .submit__button {
   margin-top: 48px;

@@ -1,0 +1,31 @@
+/* 1280 */
+.header {
+  margin: 0 auto;
+  padding: 28px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: calc(100% - 2 * 48px);
+}
+
+/* 1024 */
+@media screen and (max-width: 1024px) {
+  .header {
+    max-width: 100%;
+  }
+}
+
+/* 768 */
+@media screen and (max-width: 768px) {
+  .header {
+    width: calc(100% - 2*24px);
+  }
+}
+
+/* 420 */
+@media screen and (max-width: 420px) {
+  .header {
+    width: calc(100% - 2*16px);
+    padding: 16px 0 0;
+  }
+}

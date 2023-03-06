@@ -1,0 +1,30 @@
+/* 1280 */
+.cover {
+  margin: 0 auto;
+  padding: 92px 0;
+  width: calc(100% - 2*48px);
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+}
+
+/* 1024 */
+@media screen and (max-width: 1024px) {
+  .cover {
+    width: 100%;
+  }
+}
+
+/* 768 */
+@media screen and (max-width: 768px) {
+  .cover {
+    padding: 90px 0 88px;
+  }
+}
+
+/* 320 */
+@media screen and (max-width: 320px) {
+  .cover {
+    padding: 66px 0 64px;
+  }
+}
