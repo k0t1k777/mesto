@@ -6,13 +6,14 @@
   background-color: black;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 10px, 10px;
   border: 1px solid white;
   margin: 15px auto 0 18px;
   cursor: pointer;
 }
 
 .profile__edit-button:hover {
-  opacity: 80%;
+  opacity: .6;
   }
 
 /* 583px */
@@ -22,6 +23,7 @@
     width: 18px;
     background-position: 40%;
     margin: 0 auto 0 10px;
-    transform: translateY(5px);
+    transform: translate(11px, 5px);
+    background-size: 7.5px, 7.5px;
     }
 }

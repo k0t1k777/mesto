@@ -1,89 +1,129 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
-</head>
-<body class="page">
-  <header class="header">
-    <img src="./images/logo.svg" class="header__logo" alt="логотип Место">
-  </header>
-  <main class="container">
-    <section class="profile">
-      <div class="profile__container">
-        <img src="./images/Jhak-Iv_kysto.jpg" class="profile__avatar" alt="Аватарка Жак ива Кусто">
-      </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="page">
+    <header class="header">
+      <img src="./images/logo.svg" class="header__logo" alt="логотип Место" />
+    </header>
+    <main class="container">
+      <section class="profile">
+        <img
+          src="./images/Jhak-Iv_kysto.jpg"
+          class="profile__avatar"
+          alt="Аватарка Жак ива Кусто"
+        />
         <div class="profile__info">
           <div class="profile__wrapper">
             <h1 class="section-title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button"></button>
-           </div>
+            <button type="button" class="profile__edit-button"></button>
+          </div>
           <p class="section-subtitle">Исследователь океана</p>
+        </div>
+        <button
+          type="button"
+          type="button"
+          class="profile__add-button"
+        ></button>
+      </section>
+      <section class="elements">
+        <div class="elements__element">
+          <img
+            src="./images/Karachevsk.png"
+            class="elements__image"
+            alt="Старый разрушенный монастырь"
+          />
+          <div class="elements__wrapper">
+            <h2 class="elements__name">Карачевск</h2>
+            <button type="button" class="elements__button"></button>
+          </div>
+        </div>
+        <div class="elements__element">
+          <img
+            src="./images/Elbrus.png"
+            class="elements__image"
+            alt="Вид на Эльбрус издалека"
+          />
+          <div class="elements__wrapper">
+            <h2 class="elements__name">Гора Эльбрус</h2>
+            <button type="button" class="elements__button"></button>
+          </div>
+        </div>
+        <div class="elements__element">
+          <img
+            src="./images/Dombai.png"
+            class="elements__image"
+            alt="Пик Домбай"
+          />
+          <div class="elements__wrapper">
+            <h2 class="elements__name">Домбай</h2>
+            <button type="button" class="elements__button"></button>
+          </div>
+        </div>
+        <div class="elements__element">
+          <img
+            src="./images/Karachevsk.png"
+            class="elements__image"
+            alt="Старый разрушенный монастырь"
+          />
+          <div class="elements__wrapper">
+            <h2 class="elements__name">Карачевск</h2>
+            <button type="button" class="elements__button"></button>
+          </div>
+        </div>
+        <div class="elements__element">
+          <img
+            src="./images/Elbrus.png"
+            class="elements__image"
+            alt="Вид на Эльбрус издалека"
+          />
+          <div class="elements__wrapper">
+            <h2 class="elements__name">Гора Эльбрус</h2>
+            <button type="button" class="elements__button"></button>
+          </div>
+        </div>
+        <div class="elements__element">
+          <img
+            src="./images/Dombai.png"
+            class="elements__image"
+            alt="Пик Домбай"
+          />
+          <div class="elements__wrapper">
+            <h2 class="elements__name">Домбай</h2>
+            <button type="button" class="elements__button"></button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2023 Mesto Russia</p>
+    </footer>
+    <!-- Попап -->
+    <section class="popup">
+      <div class="popup__container">
+        <button type="button" class="popup__close"></button>
+        <form class="popup__form" name="popapForm">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input
+            class="popup__name popup__name_type_name"
+            id="popup__name"
+            type="text"
+            placeholder="Your name"
+          />
+          <input
+            class="popup__job popup__job_type_job"
+            id="popup__job"
+            type="text"
+            placeholder="Your job"
+          />
+          <button type="submit" class="popup__submit-button">Сохранить</button>
+        </form>
       </div>
-      <button class="profile__add-button"></button>
     </section>
-    <section class="elements">
-      <div class="elements__element">
-        <img src="./images/Karachevsk.png" class="elements__image" alt="Старый разрушенный монастырь">
-        <div class="elements__wrapper">
-          <h2 class="elements__name">Карачевск</h2>
-          <button class="elements__button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img src="./images/Elbrus.png" class="elements__image" alt="Вид на Эльбрус издалека">
-        <div class="elements__wrapper">
-          <h2 class="elements__name">Гора Эльбрус</h2>
-          <button class="elements__button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img src="./images/Dombai.png" class="elements__image" alt="Пик Домбай">
-        <div class="elements__wrapper">
-          <h2 class="elements__name">Домбай</h2>
-          <button class="elements__button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img src="./images/Karachevsk.png" class="elements__image" alt="Старый разрушенный монастырь">
-        <div class="elements__wrapper">
-          <h2 class="elements__name">Карачевск</h2>
-          <button class="elements__button"></button>
-         </div>
-      </div>
-      <div class="elements__element">
-        <img src="./images/Elbrus.png" class="elements__image" alt="Вид на Эльбрус издалека">
-        <div class="elements__wrapper">
-          <h2 class="elements__name">Гора Эльбрус</h2>
-          <button class="elements__button"></button>
-        </div>
-      </div>
-      <div class="elements__element">
-        <img src="./images/Dombai.png" class="elements__image" alt="Пик Домбай">
-        <div class="elements__wrapper">
-          <h2 class="elements__name">Домбай</h2>
-          <button class="elements__button"></button>
-        </div>
-      </div>
-     </section>
-  </main>
-  <footer class="footer">
-    <h3 class="footer__copyright">© 2023 Mesto Russia</h3>
-  </footer>
-<!-- Попап -->
-  <section class="popap">
-    <div class="popap__container">
-      <button class="popap__close"></button>
-      <form class="popap__form">
-        <h2 class="popap__title">Редактировать профиль</h2>
-        <input class="popap__name" id="popap__name" type="text">
-        <input class="popap__job" id="popap__job" type="text">
-        <button class="popap__submit-button">Сохранить</button>
-      </form>
-    </div>
-  </section>
-<script src="./scripts/index.js"></script>
-</body>
+    <script src="./scripts/index.js"></script>
+  </body>
 </html>

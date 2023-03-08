@@ -1,31 +1,32 @@
-const popapElement = document.querySelector(".popap");
-const popapCloseButtonElement = popapElement.querySelector(".popap__close");
-const popapOpenButtonElement = document.querySelector(".profile__edit-button");
-const formElement = document.querySelector(".popap__form");
-const nameInput = formElement.querySelector(".popap__name");
-const jobInput = formElement.querySelector(".popap__job");
-const valueJobInput = document.querySelector(".section-title");
-const valueNameInput = document.querySelector(".section-subtitle");
-
-const openPopap = function () {
-    popapElement.classList.add("popap_opened");
-  };
-  const closePopap = function () {
-    popapElement.classList.remove("popap_opened");
-    };
-  const closePopapByClickOnOverlay = function(event) {
-  console.log(event.target, event.currentTarget);
-  if (event.target !==event.currentTarget) {
-  return;
-  };
+const popupElement = document.querySelector(".popup");
+const popupCloseButtonElement = popupElement.querySelector(".popup__close");
+const popupOpenButtonElement = document.querySelector(".profile__edit-button");
+const formElement = document.querySelector(".popup__form");
+const nameInput = formElement.querySelector(".popup__name_type_name");
+const jobInput = formElement.querySelector(".popup__job_type_job");
+const valueNameInput = document.querySelector(".section-title");
+const valueJobInput = document.querySelector(".section-subtitle");
+nameInput.value = valueNameInput.textContent;
+jobInput.value = valueJobInput.textContent;
+const openPopup = function () {
+  popupElement.classList.add("popup_opened");
 };
-popapOpenButtonElement.addEventListener("click", openPopap);
-popapCloseButtonElement.addEventListener("click", closePopap);
-popapElement.addEventListener('click', closePopapByClickOnOverlay);
-function handleFormSubmit (evt) {
-evt.preventDefault();
-valueNameInput.textContent = nameInput.value;
-valueJobInput.textContent = jobInput.value;
-closePopap();
+const closePopup = function () {
+  popupElement.classList.remove("popup_opened");
+};
+const closePopupByClickOnOverlay = function (event) {
+  console.log(event.target, event.currentTarget);
+  if (event.target !== event.currentTarget) {
+    return;
+  }
+};
+popupOpenButtonElement.addEventListener("click", openPopup);
+popupCloseButtonElement.addEventListener("click", closePopup);
+popupElement.addEventListener("click", closePopupByClickOnOverlay);
+function handleFormSubmit(evt) {
+  evt.preventDefault();
+  valueNameInput.textContent = nameInput.value;
+  valueJobInput.textContent = jobInput.value;
+  closePopup();
 }
-formElement.addEventListener('submit', handleFormSubmit);
+formElement.addEventListener("submit", handleFormSubmit);

@@ -24,5 +24,6 @@
   .section-title {
    margin: 22px auto 14px;
    max-width: 189px;
+   transform: translateX(11px);
     }
   }

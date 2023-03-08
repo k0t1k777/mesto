@@ -1,4 +1,4 @@
-.popap__name {
+.popup__name {
   margin-top: 54px;
   border-top: none;
   border-left: none;
@@ -6,13 +6,15 @@
   padding: 0;
   font-size: 14px;
   line-height: 17px;
-  width: 358px;
-  border-bottom: 1px solid rgba(0,0,0,.3);
+  width: 100%;
+  border-bottom: 1px solid #000000;
+  opacity: 0.2;
+  padding: 0 0 8px 0;
 }
 
 /* 540 */
 @media screen and (max-width: 540px) {
-  .popap__name {
+  .popup__name {
     margin-top: 75px;
     width: 238px;
     }

@@ -9,7 +9,7 @@
 }
 
 .elements__button:hover {
-  opacity: 80%;
+  opacity: .5;
 }
 
 /* 540 */

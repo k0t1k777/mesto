@@ -1,7 +1,7 @@
 /* 1280 */
 .elements {
   max-width: 880px;
-  padding: 36px 0 0;
+  padding: 51px 0 0;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, 282px);
@@ -9,3 +9,10 @@
   justify-content: center;
   gap: 20px 17px;
 }
+
+/* 583px */
+@media screen and (max-width: 583px) {
+  .elements {
+    padding: 36px 0 0;
+    }
+  }
