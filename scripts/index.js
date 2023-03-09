@@ -6,9 +6,9 @@ const nameInput = formElement.querySelector(".popup__name_type_name");
 const jobInput = formElement.querySelector(".popup__job_type_job");
 const valueNameInput = document.querySelector(".section-title");
 const valueJobInput = document.querySelector(".section-subtitle");
-nameInput.value = valueNameInput.textContent;
-jobInput.value = valueJobInput.textContent;
 const openPopup = function () {
+  nameInput.value = valueNameInput.textContent;
+  jobInput.value = valueJobInput.textContent;
   popupElement.classList.add("popup_opened");
 };
 const closePopup = function () {
