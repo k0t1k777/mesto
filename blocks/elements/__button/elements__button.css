@@ -1,11 +1,15 @@
 .elements__button {
   background-image: url(../../../images/Heart.svg);
-  background-color: white;
+  background-color: transparent;
   width: 22px;
   height: 19px;
   border: 0;
   margin-right: 15px;
   cursor: pointer;
+ }
+
+.elements__button_active {
+  background-image: url(../../../images/Heart_black.svg);
 }
 
 .elements__button:hover {
