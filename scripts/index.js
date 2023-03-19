@@ -9,20 +9,25 @@ const valueJobInput = document.querySelector(".section-subtitle");
 const popupOpenAddPictureButtonElement = document.querySelector(".profile__add-button");
 const popupElementAddPicture = document.querySelector(".popup__addPicture");
 const popupCloseButtonAddPicture = document.querySelector(".popup__close_addPicture");
+// Переменные темплейта
 const heartBlack = document.querySelector(".elements__button");
-
 const cardsContainer = document.querySelector(".elements");
 const itemTemplate = document.querySelector("#template").content;
-const addPictureToTemplate = function () {
-  const pictureElement = itemTemplate.querySelector("#template").cloneNode(true);
-  templateElementPicture = pictureElement.querySelector("elements__image");
-  templateElementName = pictureElement.querySelector("elements__name");
-  templateElementPicture.link = item.link;
+// Функция добавления место картинкам
+const createCard = function (item) {
+  const pictureElement = itemTemplate.cloneNode(true);
+  const templateElementPicture = pictureElement.querySelector(".elements__image");
+  const templateElementName = pictureElement.querySelector(".elements__name");
+  templateElementPicture.src = item.link;
   templateElementPicture.alt = item.alt;
-  templateElementName.querySelector("#popup__name_addPicture").textContent = item.name;
-  return addPictureToTemplate;
+  templateElementName.textContent = item.name;
+  return pictureElement;
 }
-
+// Куда хотим их разместить
+const addOnPage = function(item) {
+  cardsContainer.prepend(item);
+}
+// Массив с картинками
 const initialCards = [
   {
     name: 'Архыз',
@@ -49,18 +54,16 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-
-initialCards.forEach(function (item) {
-  addPictureToTemplate(item.name, item.alt, item.link);
+// Перебор картинок
+initialCards.forEach((item) => {
+  addOnPage(createCard(item));
 });
-
-
-
+// Добавление лайков
 const paintBlackHeart = function () {
   heartBlack.classList.toggle("elements__button_active");
 }
-heartBlack.addEventListener("click", paintBlackHeart);
-
+// heartBlack.addEventListener("click", paintBlackHeart);
+// Открытие/закрытие попапа
 const openPopup = function () {
   nameInput.value = valueNameInput.textContent;
   jobInput.value = valueJobInput.textContent;
@@ -75,6 +78,7 @@ const closePopupByClickOnOverlay = function (event) {
     return;
   }
 };
+// Отправка данных для кнопки редактирования
 popupOpenButtonElement.addEventListener("click", openPopup);
 popupCloseButtonElement.addEventListener("click", closePopup);
 popupElement.addEventListener("click", closePopupByClickOnOverlay);
@@ -85,8 +89,7 @@ function handleFormSubmit(evt) {
   closePopup();
 }
 formElement.addEventListener("submit", handleFormSubmit);
-// addPicture
-
+// Открытие попапа для отправки фото
 const addPicture = function () {
   popupElementAddPicture.classList.add("popup__addPicture_opened");
 };
@@ -96,4 +99,24 @@ const closeAddPicture = function () {
 popupOpenAddPictureButtonElement.addEventListener("click", addPicture);
 popupCloseButtonAddPicture.addEventListener("click", closeAddPicture);
 
+// Отправка данных для добавление фотографии
+
+const PictureToSend = document.querySelector(".popup__name_addPicture_type_name");
+const LinkPictureToSend = document.querySelector(".popup__link_addPicture_type_link");
+function addPictureToSubmit (event) {
+  evt.preventDefault();
+  const addNewPicture = {name:PictureToSend.value, link:LinkPictureToSend.value}
+  pictureElement = createCard()
+  cardsContainer.append(item);
+  closeAddPicture()
+}
+// popupOpenButtonElement.addEventListener("click", openPopup);
+// popupCloseButtonElement.addEventListener("click", closePopup);
+// popupElement.addEventListener("click", closePopupByClickOnOverlay);
+// function handleFormSubmit(evt) {
+//   valueNameInput.textContent = nameInput.value;
+//   valueJobInput.textContent = jobInput.value;
+//   closePopup();
+// }
+// formElement.addEventListener("submit", handleFormSubmit);
 
