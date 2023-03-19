@@ -17,9 +17,10 @@ const addPictureToTemplate = function () {
   const pictureElement = itemTemplate.querySelector("#template").cloneNode(true);
   templateElementPicture = pictureElement.querySelector("elements__image");
   templateElementName = pictureElement.querySelector("elements__name");
-  templateElementPicture.link = link;
-  templateElementPicture.alt = alt;
-  templateElementName.querySelector("#popup__name_addPicture").textContent = name;
+  templateElementPicture.link = item.link;
+  templateElementPicture.alt = item.alt;
+  templateElementName.querySelector("#popup__name_addPicture").textContent = item.name;
+  return addPictureToTemplate;
 }
 
 const initialCards = [
@@ -50,7 +51,7 @@ const initialCards = [
 ];
 
 initialCards.forEach(function (item) {
-
+  addPictureToTemplate(item.name, item.alt, item.link);
 });
 
 
