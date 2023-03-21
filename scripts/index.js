@@ -13,7 +13,7 @@ const popupCloseButtonAddPicture = document.querySelector(".popup__close_addPict
 const cardsContainer = document.querySelector(".elements");
 const itemTemplate = document.querySelector("#template").content;
 // Функция добавления место картинкам
-const createCard = function (item) {
+const card = function (item) {
   const pictureElement = itemTemplate.cloneNode(true);
   const templateElementPicture = pictureElement.querySelector(".elements__image");
   const templateElementName = pictureElement.querySelector(".elements__name");
@@ -64,7 +64,7 @@ const initialCards = [
 ];
 // Вставляем данные картинки
 initialCards.forEach((item) => {
-  addOnPage(createCard(item));
+  addOnPage(card(item));
 });
 
 // Открытие/закрытие попапа
@@ -102,33 +102,24 @@ const closeAddPicture = function () {
 };
 popupOpenAddPictureButtonElement.addEventListener("click", addPicture);
 popupCloseButtonAddPicture.addEventListener("click", closeAddPicture);
-// Открытие/закрытие попапа увеличенных фото
-// const openPhoto = function () {
-//   nameInput.value = valueNameInput.textContent;
-//   jobInput.value = valueJobInput.textContent;
-//   }
-// openPhoto.addEventListener('click', function() {
-// const photoForOpenPhoto = document.querySelector(".popup__image");
-// popup__forImage_active
-// })
-// Отправка данных для добавление фотографии
 
+// Отправка данных для добавление фотографии
+const formPicture = document.querySelector('.popup__form_addPicture')
+formPicture.addEventListener('submit', addCardOnPage)
 const pictureToSend = document.querySelector(".popup__name_addPicture_type_name");
 const linkPictureToSend = document.querySelector(".popup__link_addPicture_type_link");
-function addPictureToSubmit (event) {
-  evt.preventDefault();
-  const addNewPicture = {name:pictureToSend.value, link:linkPictureToSend.value}
-  cardsContainer(createCard(addNewPicture));
+function addCardOnPage (event) {
+  event.preventDefault();
+  const newPicture = {name:pictureToSend.value, link:linkPictureToSend.value}
+  addOnPage(card(newPicture));
   closeAddPicture();
 }
-// popupOpenButtonElement.addEventListener("click", openPopup);
-// popupCloseButtonElement.addEventListener("click", closePopup);
-// popupElement.addEventListener("click", closePopupByClickOnOverlay);
-// function handleFormSubmit(evt) {
-//   valueNameInput.textContent = nameInput.value;
-//   valueJobInput.textContent = jobInput.value;
-//   closePopup();
-// }
-// formElement.addEventListener("submit", handleFormSubmit);
-
-// https://ae04.alicdn.com/kf/S389710ae7782459692234222687c55e8o.jpg_640x640.jpg
+// Открытие/закрытие попапа увеличенных фото
+const onAllscreenImage = document.querySelector(".popup__image");
+const onAllscreenText = document.querySelector(".popup__figcaption");
+templateElementPicture.addEventListener('click', function() {
+  onAllscreenImage.src = item.link;
+  onAllscreenImage.alt = item.alt;
+  onAllscreenText.textContent = item.name;
+  openPopup(itemTemplate);
+})
