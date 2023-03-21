@@ -10,7 +10,6 @@ const popupOpenAddPictureButtonElement = document.querySelector(".profile__add-b
 const popupElementAddPicture = document.querySelector(".popup__addPicture");
 const popupCloseButtonAddPicture = document.querySelector(".popup__close_addPicture");
 // Переменные темплейта
-const heartBlack = document.querySelector(".elements__button");
 const cardsContainer = document.querySelector(".elements");
 const itemTemplate = document.querySelector("#template").content;
 // Функция добавления место картинкам
@@ -21,7 +20,16 @@ const createCard = function (item) {
   templateElementPicture.src = item.link;
   templateElementPicture.alt = item.alt;
   templateElementName.textContent = item.name;
-  return pictureElement;
+  // Добавление лайков
+  pictureElement.querySelector('.elements__button').addEventListener('click', function (evt) {
+  evt.target.classList.toggle("elements__button_active");
+});
+  // Удаление картинок
+  pictureElement.querySelector('.elements__element_urn').addEventListener('click', function (evt) {
+    evt.target.closest(".elements__element").remove();
+  });
+// Возвращаем
+return pictureElement;
 }
 // Куда хотим их разместить
 const addOnPage = function(item) {
@@ -54,15 +62,11 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-// Перебор картинок
+// Вставляем данные картинки
 initialCards.forEach((item) => {
   addOnPage(createCard(item));
 });
-// Добавление лайков
-const paintBlackHeart = function () {
-  heartBlack.classList.toggle("elements__button_active");
-}
-// heartBlack.addEventListener("click", paintBlackHeart);
+
 // Открытие/закрытие попапа
 const openPopup = function () {
   nameInput.value = valueNameInput.textContent;
@@ -89,7 +93,7 @@ function handleFormSubmit(evt) {
   closePopup();
 }
 formElement.addEventListener("submit", handleFormSubmit);
-// Открытие попапа для отправки фото
+// Открытие/закрытие попапа для отправки фото
 const addPicture = function () {
   popupElementAddPicture.classList.add("popup__addPicture_opened");
 };
@@ -98,17 +102,24 @@ const closeAddPicture = function () {
 };
 popupOpenAddPictureButtonElement.addEventListener("click", addPicture);
 popupCloseButtonAddPicture.addEventListener("click", closeAddPicture);
-
+// Открытие/закрытие попапа увеличенных фото
+// const openPhoto = function () {
+//   nameInput.value = valueNameInput.textContent;
+//   jobInput.value = valueJobInput.textContent;
+//   }
+// openPhoto.addEventListener('click', function() {
+// const photoForOpenPhoto = document.querySelector(".popup__image");
+// popup__forImage_active
+// })
 // Отправка данных для добавление фотографии
 
-const PictureToSend = document.querySelector(".popup__name_addPicture_type_name");
-const LinkPictureToSend = document.querySelector(".popup__link_addPicture_type_link");
+const pictureToSend = document.querySelector(".popup__name_addPicture_type_name");
+const linkPictureToSend = document.querySelector(".popup__link_addPicture_type_link");
 function addPictureToSubmit (event) {
   evt.preventDefault();
-  const addNewPicture = {name:PictureToSend.value, link:LinkPictureToSend.value}
-  pictureElement = createCard()
-  cardsContainer.append(item);
-  closeAddPicture()
+  const addNewPicture = {name:pictureToSend.value, link:linkPictureToSend.value}
+  cardsContainer(createCard(addNewPicture));
+  closeAddPicture();
 }
 // popupOpenButtonElement.addEventListener("click", openPopup);
 // popupCloseButtonElement.addEventListener("click", closePopup);
@@ -120,3 +131,4 @@ function addPictureToSubmit (event) {
 // }
 // formElement.addEventListener("submit", handleFormSubmit);
 
+// https://ae04.alicdn.com/kf/S389710ae7782459692234222687c55e8o.jpg_640x640.jpg
