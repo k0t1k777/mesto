@@ -28,8 +28,8 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
-/* elements__button_active */
 
+/* elements__button_active */
 .elements__element_urn {
   background-image: url(../images/Group-urn.svg);
   background-color: transparent;
@@ -198,8 +198,8 @@
   align-items: center;
   background-color: rgba(0,0,0,.5);
   visibility: hidden;
-  opacity: 0;
-  transition: opacity .3s linear;
+  /* opacity: 0; */
+  /* transition: opacity .3s linear; */
 }
 
 .popup__forImage_active {
@@ -220,7 +220,7 @@ align-items: center;
   background-image: url(../images/Close_Icon.svg);
   border: none;
   position: absolute;
-  right: -40px;
+  right: -20px;
   top: -40px;
   width: 32px;
   height: 32px;
