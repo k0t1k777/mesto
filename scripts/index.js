@@ -60,9 +60,15 @@ templateElementPicture.addEventListener('click', function() {
 return pictureElement;
 }
 // Закрытие увеличенных фото
-popapForImage.querySelector(".popup__close_image").addEventListener('click', function (evt) {
-  evt.target.closest(".popup__forImage_active").remove();
+// popapForImage.querySelector(".popup__close_image").addEventListener('click', function (evt) {
+//   evt.target.closest(".popup__forImage_active").remove();
+// })
+const closePopupBigPicture = document.querySelector(".popup__close_image")
+closePopupBigPicture.addEventListener('click', function() {
+  popapForImage.classList.remove("popup__forImage_active");
+
 })
+
 
 
 // Куда хотим их разместить
