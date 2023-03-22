@@ -14,6 +14,7 @@
 
 .elements__button:hover {
   opacity: .5;
+  transition: opacity 0.3s linear;
 }
 
 /* 540 */

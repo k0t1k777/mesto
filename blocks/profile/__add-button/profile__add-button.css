@@ -16,6 +16,7 @@
 
 .profile__add-button:hover {
   opacity: .6;
+  transition: opacity 0.3s linear;
 }
 
 /* 879 */

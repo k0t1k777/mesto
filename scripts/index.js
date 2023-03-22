@@ -6,9 +6,13 @@ const nameInput = formElement.querySelector(".popup__name_type_name");
 const jobInput = formElement.querySelector(".popup__job_type_job");
 const valueNameInput = document.querySelector(".section-title");
 const valueJobInput = document.querySelector(".section-subtitle");
-const popupOpenAddPictureButtonElement = document.querySelector(".profile__add-button");
+const popupOpenAddPictureButtonElement = document.querySelector(
+  ".profile__add-button"
+);
 const popupElementAddPicture = document.querySelector(".popup__addPicture");
-const popupCloseButtonAddPicture = document.querySelector(".popup__close_addPicture");
+const popupCloseButtonAddPicture = document.querySelector(
+  ".popup__close_addPicture"
+);
 const popapForImage = document.querySelector(".popup__forImage");
 // Переменные темплейта
 const cardsContainer = document.querySelector(".elements");
@@ -31,76 +35,74 @@ const closePopupByClickOnOverlay = function (event) {
 // Функция добавления место картинкам
 const card = function (item) {
   const pictureElement = itemTemplate.cloneNode(true);
-  const templateElementPicture = pictureElement.querySelector(".elements__image");
+  const templateElementPicture =
+    pictureElement.querySelector(".elements__image");
   const templateElementName = pictureElement.querySelector(".elements__name");
   templateElementPicture.src = item.link;
   templateElementPicture.alt = item.alt;
   templateElementName.textContent = item.name;
   // Добавление лайков
-  pictureElement.querySelector('.elements__button').addEventListener('click', function (evt) {
-  evt.target.classList.toggle("elements__button_active");
-});
+  pictureElement
+    .querySelector(".elements__button")
+    .addEventListener("click", function (evt) {
+      evt.target.classList.toggle("elements__button_active");
+    });
   // Удаление картинок
-  pictureElement.querySelector('.elements__element_urn').addEventListener('click', function (evt) {
-    evt.target.closest(".elements__element").remove();
-  });
+  pictureElement
+    .querySelector(".elements__element_urn")
+    .addEventListener("click", function (evt) {
+      evt.target.closest(".elements__element").remove();
+    });
   // Открытие попапа увеличенных фото
-const onAllscreenImage = document.querySelector(".popup__image");
-const onAllscreenText = document.querySelector(".popup__figcaption");
-templateElementPicture.addEventListener('click', function() {
-  onAllscreenImage.src = item.link;
-  onAllscreenImage.alt = item.alt;
-  onAllscreenText.textContent = item.name;
-  const openPicture = function () {
-    popapForImage.classList.add("popup__forImage_active");
-  }
-  openPicture();
-})
-// Возвращаем
-return pictureElement;
-}
+  const onAllscreenImage = document.querySelector(".popup__image");
+  const onAllscreenText = document.querySelector(".popup__figcaption");
+  templateElementPicture.addEventListener("click", function () {
+    onAllscreenImage.src = item.link;
+    onAllscreenImage.alt = item.alt;
+    onAllscreenText.textContent = item.name;
+    const openPicture = function () {
+      popapForImage.classList.add("popup__forImage_active");
+    };
+    openPicture();
+  });
+  // Возвращаем
+  return pictureElement;
+};
 // Закрытие увеличенных фото
-// popapForImage.querySelector(".popup__close_image").addEventListener('click', function (evt) {
-//   evt.target.closest(".popup__forImage_active").remove();
-// })
-const closePopupBigPicture = document.querySelector(".popup__close_image")
-closePopupBigPicture.addEventListener('click', function() {
+const closePopupBigPicture = document.querySelector(".popup__close_image");
+closePopupBigPicture.addEventListener("click", function () {
   popapForImage.classList.remove("popup__forImage_active");
-
-})
-
-
-
+});
 // Куда хотим их разместить
-const addOnPage = function(item) {
+const addOnPage = function (item) {
   cardsContainer.prepend(item);
-}
+};
 // Массив с картинками
 const initialCards = [
   {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    name: "Архыз",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
   },
   {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    name: "Челябинская область",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
   },
   {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    name: "Иваново",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
   },
   {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    name: "Камчатка",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
   },
   {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    name: "Холмогорский район",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
   },
   {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
+    name: "Байкал",
+    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+  },
 ];
 // Вставляем данные картинки
 initialCards.forEach((item) => {
@@ -128,13 +130,21 @@ popupOpenAddPictureButtonElement.addEventListener("click", addPicture);
 popupCloseButtonAddPicture.addEventListener("click", closeAddPicture);
 
 // Отправка данных для добавление фотографии
-const formPicture = document.querySelector('.popup__form_addPicture')
-formPicture.addEventListener('submit', addCardOnPage)
-const pictureToSend = document.querySelector(".popup__name_addPicture_type_name");
-const linkPictureToSend = document.querySelector(".popup__link_addPicture_type_link");
-function addCardOnPage (event) {
+const formPicture = document.querySelector(".popup__form_addPicture");
+formPicture.addEventListener("submit", addCardOnPage);
+const pictureToSend = document.querySelector(
+  ".popup__name_addPicture_type_name"
+);
+const linkPictureToSend = document.querySelector(
+  ".popup__link_addPicture_type_link"
+);
+function addCardOnPage(event) {
   event.preventDefault();
-  const newPicture = {name:pictureToSend.value, link:linkPictureToSend.value}
+  const newPicture = {
+    name: pictureToSend.value,
+    link: linkPictureToSend.value,
+  };
   addOnPage(card(newPicture));
+  formPicture.reset();
   closeAddPicture();
 }
