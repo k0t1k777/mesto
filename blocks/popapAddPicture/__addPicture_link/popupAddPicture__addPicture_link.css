@@ -1,0 +1,18 @@
+.popupAddPicture__addPicture_link {
+  margin-top: 30px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 0 0 13px 0;
+  font-size: 14px;
+  line-height: 17px;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* 540 */
+@media screen and (max-width: 540px) {
+  .popupAddPicture__addPicture_link {
+    width: 238px;
+  }
+}

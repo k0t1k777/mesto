@@ -1,0 +1,9 @@
+.popupForImage {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.popupForImage_active {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s linear;
+}

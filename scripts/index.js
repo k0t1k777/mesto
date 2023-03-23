@@ -1,82 +1,51 @@
-const popupElement = document.querySelector(".popup");
-const popupCloseButtonElement = popupElement.querySelector(".popup__close");
+// Переменные страницы
 const popupOpenButtonElement = document.querySelector(".profile__edit-button");
-const formElement = document.querySelector(".popup__form");
-const nameInput = formElement.querySelector(".popup__name_type_name");
-const jobInput = formElement.querySelector(".popup__job_type_job");
+const popupOpenAddPicture = document.querySelector(".profile__add-button");
 const valueNameInput = document.querySelector(".section-title");
 const valueJobInput = document.querySelector(".section-subtitle");
-const popupElementAddPicture = document.querySelector(".popup__addPicture");
-const popupOpenAddPictureButtonElement = document.querySelector(
-  ".profile__add-button"
-);
-const popupCloseButtonAddPicture = document.querySelector(
-  ".popup__close_addPicture"
-);
-const popapForImage = document.querySelector(".popup__forImage");
+// Переменные форм
+const popupElement = document.querySelector(".popup");
+const popupCloseButtonElement = popupElement.querySelector(".popup__close");
+const formElement = popupElement.querySelector(".popup__form");
+const nameInput = formElement.querySelector(".popup__name_type_name");
+const jobInput = formElement.querySelector(".popup__job_type_job");
 // Переменные с увеличения картинок
-const onAllscreenImage = document.querySelector(".popup__image");
-const onAllscreenText = document.querySelector(".popup__figcaption");
-const closePopupBigPicture = document.querySelector(".popup__close_image");
+const popapForImage = document.querySelector(".popupForImage");
+const onAllscreenImage = popapForImage.querySelector(".popupForImage__image");
+const onAllscreenText = popapForImage.querySelector(".popupForImage__figcaption");
+const closePopupBigPicture = popapForImage.querySelector(".popupForImage__close");
 // Переменные добавления картинки
-const formPicture = document.querySelector(".popup__form_addPicture");
+const elementAddPicture = document.querySelector(".popupAddPicture");
+const formPicture = elementAddPicture.querySelector(".popupAddPicture___form");
+const popupCloseButtonAddPicture = elementAddPicture.querySelector(".popupAddPicture__close");
+const pictureToSend = elementAddPicture.querySelector(".popupAddPicture__addPictureName_type_name");
+const linkPictureToSend = elementAddPicture.querySelector(".popupAddPicture__addPicture_link_type_link");
 // Переменные темплейта
 const cardsContainer = document.querySelector(".elements");
 const itemTemplate = document.querySelector("#template").content;
 // Открытие/закрытие попапа
-// const openPopup = function () {
-//   nameInput.value = valueNameInput.textContent;
-//   jobInput.value = valueJobInput.textContent;
-//   popupElement.classList.add("popup_opened");
-// };
-// _______________________________
-function openPopup (popap) {
-  popap.classList.add("popup_opened");
+function openPopup (popup) {
+  popup.classList.add("popup_opened");
 };
-function closePopup (popap) {
-  popap.classList.remove("popup_opened");
+function closePopup (popup) {
+  popup.classList.remove("popup_opened");
 };
-const closePopupByClickOnOverlay = function (event) {
-  console.log(event.target, event.currentTarget);
-  if (event.target !== event.currentTarget) {
-    return;
-  }
-};
-
-// _______________________________
-
-// Открытие/закрытие попапа для отправки фото
-// const addPicture = function () {
-//   popupElementAddPicture.classList.add("popup__addPicture_opened");
-// };
-// const closeAddPicture = function () {
-//   popupElementAddPicture.classList.remove("popup__addPicture_opened");
-// };
-// popupOpenAddPictureButtonElement.addEventListener("click", addPicture);
-// popupCloseButtonAddPicture.addEventListener("click", closeAddPicture);
-// _______________________________
 // Открытие/закрытие попапа для профиля
 popupOpenButtonElement.addEventListener("click", function() {
+  nameInput.value = valueNameInput.textContent;
+  jobInput.value = valueJobInput.textContent;
   openPopup(popupElement);
 });
 popupCloseButtonElement.addEventListener("click", function() {
 closePopup(popupElement);
-console.log(closePopup(popupCloseButtonElement))
-
 });
-
 // Открытие/закрытие попапа для добавления фото
-popupOpenAddPictureButtonElement.addEventListener("click", function() {
-  openPopup(popupElementAddPicture);
+popupOpenAddPicture.addEventListener("click", function() {
+  openPopup(elementAddPicture);
 });
 popupCloseButtonAddPicture.addEventListener("click", function() {
-  closePopup(popupElementAddPicture);
+  closePopup(elementAddPicture);
 });
-
-
-// _______________________________
-
-
 // Функция добавления место картинкам
 const card = function (item) {
   const pictureElement = itemTemplate.cloneNode(true);
@@ -86,8 +55,7 @@ const card = function (item) {
   templateElementPicture.src = item.link;
   templateElementPicture.alt = item.alt;
   templateElementName.textContent = item.name;
-  closePopup(popupElementAddPicture);
-
+  closePopup(elementAddPicture);
   // Добавление лайков
   pictureElement
     .querySelector(".elements__button")
@@ -106,7 +74,7 @@ const card = function (item) {
     onAllscreenImage.alt = item.alt;
     onAllscreenText.textContent = item.name;
     const openPicture = function () {
-      popapForImage.classList.add("popup__forImage_active");
+      popapForImage.classList.add("popupForImage_active");
     };
     openPicture();
   });
@@ -115,7 +83,7 @@ const card = function (item) {
 };
 // Закрытие увеличенных фото
 closePopupBigPicture.addEventListener("click", function () {
-  popapForImage.classList.remove("popup__forImage_active");
+  popapForImage.classList.remove("popupForImage_active");
 });
 // Куда хотим их разместить
 const addOnPage = function (item) {
@@ -153,9 +121,6 @@ initialCards.forEach((item) => {
   addOnPage(card(item));
 });
 // Отправка данных для кнопки редактирования
-popupOpenButtonElement.addEventListener("click", openPopup);
-popupCloseButtonElement.addEventListener("click", closePopup);
-popupElement.addEventListener("click", closePopupByClickOnOverlay);
 function handleFormSubmit(evt) {
   evt.preventDefault();
   valueNameInput.textContent = nameInput.value;
@@ -165,12 +130,6 @@ function handleFormSubmit(evt) {
 formElement.addEventListener("submit", handleFormSubmit);
 // Отправка данных для добавление фотографии
 formPicture.addEventListener("submit", addCardOnPage);
-const pictureToSend = document.querySelector(
-  ".popup__name_addPicture_type_name"
-);
-const linkPictureToSend = document.querySelector(
-  ".popup__link_addPicture_type_link"
-);
 function addCardOnPage(event) {
   event.preventDefault();
   const newPicture = {
@@ -179,5 +138,5 @@ function addCardOnPage(event) {
   };
   addOnPage(card(newPicture));
   formPicture.reset();
-  closePopup();
 }
+
