@@ -260,13 +260,6 @@
   object-fit: cover;
 }
 
-/* 540 */
-@media screen and (max-width: 540px) {
-  .popup__image {
-    /* margin: 0 40px 0 40px; */
-  }
-}
-
 .popup__figcaption {
   margin-top: 10px;
   font-weight: 400;
