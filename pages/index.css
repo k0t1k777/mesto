@@ -65,6 +65,13 @@
   transition: opacity 0.3s linear;
 }
 
+.popup_opened {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .3s linear;
+}
+
+
 .popup__addPicture_opened {
   visibility: visible;
   opacity: 1;

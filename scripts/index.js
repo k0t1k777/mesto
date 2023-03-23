@@ -30,11 +30,11 @@ const itemTemplate = document.querySelector("#template").content;
 //   popupElement.classList.add("popup_opened");
 // };
 // _______________________________
-function openPopup (openAllPopup) {
-  openAllPopup.classList.add("popup_opened");
+function openPopup (popap) {
+  popap.classList.add("popup_opened");
 };
-function closePopup (closeAllPopup) {
-  closeAllPopup.classList.remove("popup_opened");
+function closePopup (popap) {
+  popap.classList.remove("popup_opened");
 };
 const closePopupByClickOnOverlay = function (event) {
   console.log(event.target, event.currentTarget);
@@ -86,6 +86,8 @@ const card = function (item) {
   templateElementPicture.src = item.link;
   templateElementPicture.alt = item.alt;
   templateElementName.textContent = item.name;
+  closePopup(popupElementAddPicture);
+
   // Добавление лайков
   pictureElement
     .querySelector(".elements__button")
