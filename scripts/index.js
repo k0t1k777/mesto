@@ -16,10 +16,10 @@ const onAllscreenText = popapForImage.querySelector(".popupForImage__figcaption"
 const closePopupBigPicture = popapForImage.querySelector(".popupForImage__close");
 // Переменные добавления картинки
 const elementAddPicture = document.querySelector(".popupAddPicture");
-const formPicture = elementAddPicture.querySelector(".popupAddPicture___form");
+const formPicture = elementAddPicture.querySelector(".popupAddPicture__form");
 const popupCloseButtonAddPicture = elementAddPicture.querySelector(".popupAddPicture__close");
 const pictureToSend = elementAddPicture.querySelector(".popupAddPicture__addPictureName_type_name");
-const linkPictureToSend = elementAddPicture.querySelector(".popupAddPicture__addPicture_link_type_link");
+const linkPictureToSend = elementAddPicture.querySelector(".popupAddPicture__addPictureLink_type_link");
 // Переменные темплейта
 const cardsContainer = document.querySelector(".elements");
 const itemTemplate = document.querySelector("#template").content;

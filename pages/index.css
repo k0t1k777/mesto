@@ -31,7 +31,7 @@
 @import url(../blocks/popapAddPicture/__addPictureName/popupAddPicture__addPictureName.css);
 @import url(../blocks/popapAddPicture/popapAddPicture.css);
 @import url(../blocks/popapAddPicture/__close/popupAddPicture__close.css);
-@import url(../blocks/popapAddPicture/__addPicture_link/popupAddPicture__addPicture_link.css);
+@import url(../blocks/popapAddPicture/__addPictureLink/popupAddPicture__addPictureLink.css);
 @import url(../blocks/popapAddPicture/__title/popupAddPicture__title.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);

@@ -1,4 +1,4 @@
-.popupAddPicture__addPicture_link {
+.popupAddPicture__addPictureLink {
   margin-top: 30px;
   border-top: none;
   border-left: none;
@@ -12,7 +12,7 @@
 
 /* 540 */
 @media screen and (max-width: 540px) {
-  .popupAddPicture__addPicture_link {
+  .popupAddPicture__addPictureLink {
     width: 238px;
   }
 }
