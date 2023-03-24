@@ -7,8 +7,8 @@ const valueJobInput = document.querySelector(".section-subtitle");
 const popupEditProfile = document.querySelector(".popupEditProfile");
 const profileCloseButtons = document.querySelectorAll(".popup__close");
 const formElement = popupEditProfile.querySelector(".popup__form");
-const nameInput = formElement.querySelector(".popup__name_type_name");
-const jobInput = formElement.querySelector(".popup__job_type_job");
+const nameInput = formElement.querySelector(".popup__input_type_name");
+const jobInput = formElement.querySelector(".popup__input_type_job");
 // Переменные с увеличения картинок
 const popapForImage = document.querySelector(".popupForImage");
 const zoomPicture = popapForImage.querySelector(".popupForImage__image");
