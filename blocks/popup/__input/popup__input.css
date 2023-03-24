@@ -1,5 +1,5 @@
-.popupAddPicture__addPictureName {
-  margin-top: 48px;
+.popup__input {
+  margin: 0 0 40px;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -7,14 +7,18 @@
   line-height: 17px;
   width: 100%;
   border-bottom: 1px solid #000000;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 0 0 13px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  padding: 0 0 10px 0;
+}
+
+popup__input:last-of-type {
+  margin: 0;
 }
 
 /* 540 */
 @media screen and (max-width: 540px) {
- .popupAddPicture__addPictureName {
+  .popup__input {
     margin-top: 75px;
     width: 238px;
+    }
   }
-}

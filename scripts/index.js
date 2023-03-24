@@ -1,53 +1,59 @@
 // Переменные страницы
-const popupOpenButtonElement = document.querySelector(".profile__edit-button");
-const popupOpenAddPicture = document.querySelector(".profile__add-button");
+const profileOpenButton = document.querySelector(".profile__edit-button");
+const profileAddButton = document.querySelector(".profile__add-button");
 const valueNameInput = document.querySelector(".section-title");
 const valueJobInput = document.querySelector(".section-subtitle");
 // Переменные форм
-const popupElement = document.querySelector(".popup");
-const popupCloseButtonElement = popupElement.querySelector(".popup__close");
-const formElement = popupElement.querySelector(".popup__form");
+const popupEditProfile = document.querySelector(".popupEditProfile");
+const profileCloseButtons = document.querySelectorAll(".popup__close");
+const formElement = popupEditProfile.querySelector(".popup__form");
 const nameInput = formElement.querySelector(".popup__name_type_name");
 const jobInput = formElement.querySelector(".popup__job_type_job");
 // Переменные с увеличения картинок
 const popapForImage = document.querySelector(".popupForImage");
-const onAllscreenImage = popapForImage.querySelector(".popupForImage__image");
-const onAllscreenText = popapForImage.querySelector(".popupForImage__figcaption");
-const closePopupBigPicture = popapForImage.querySelector(".popupForImage__close");
+const zoomPicture = popapForImage.querySelector(".popupForImage__image");
+const figcaptionPicture = popapForImage.querySelector(
+  ".popupForImage__figcaption"
+);
 // Переменные добавления картинки
-const elementAddPicture = document.querySelector(".popupAddPicture");
-const formPicture = elementAddPicture.querySelector(".popupAddPicture__form");
-const popupCloseButtonAddPicture = elementAddPicture.querySelector(".popupAddPicture__close");
-const pictureToSend = elementAddPicture.querySelector(".popupAddPicture__addPictureName_type_name");
-const linkPictureToSend = elementAddPicture.querySelector(".popupAddPicture__addPictureLink_type_link");
+const popupAddPicture = document.querySelector(".popupAddPicture");
+const formPicture = popupAddPicture.querySelector(".popup__form");
+const titleInput = popupAddPicture.querySelector(".popup__input_type_title");
+const linkInput = popupAddPicture.querySelector(".popup__input_type_link");
 // Переменные темплейта
 const cardsContainer = document.querySelector(".elements");
 const itemTemplate = document.querySelector("#template").content;
-// Открытие/закрытие попапа
-function openPopup (popup) {
+// Открытие/закрытие попапов
+function openPopup(popup) {
   popup.classList.add("popup_opened");
-};
-function closePopup (popup) {
+}
+function closePopup(popup) {
   popup.classList.remove("popup_opened");
-};
-// Открытие/закрытие попапа для профиля
-popupOpenButtonElement.addEventListener("click", function() {
+}
+profileCloseButtons.forEach((element) => {
+  const popup = element.closest(".popup");
+  element.addEventListener("click", () => closePopup(popupEditProfile));
+});
+profileCloseButtons.forEach((element) => {
+  const popup = element.closest(".popup");
+  element.addEventListener("click", () => closePopup(popupAddPicture));
+});
+profileCloseButtons.forEach((element) => {
+  const popup = element.closest(".popup");
+  element.addEventListener("click", () => closePopup(popapForImage));
+});
+// Открытие попапа для профиля
+profileOpenButton.addEventListener("click", function () {
   nameInput.value = valueNameInput.textContent;
   jobInput.value = valueJobInput.textContent;
-  openPopup(popupElement);
+  openPopup(popupEditProfile);
 });
-popupCloseButtonElement.addEventListener("click", function() {
-closePopup(popupElement);
-});
-// Открытие/закрытие попапа для добавления фото
-popupOpenAddPicture.addEventListener("click", function() {
-  openPopup(elementAddPicture);
-});
-popupCloseButtonAddPicture.addEventListener("click", function() {
-  closePopup(elementAddPicture);
+// Открытие попапа для добавления фото
+profileAddButton.addEventListener("click", function () {
+  openPopup(popupAddPicture);
 });
 // Функция добавления место картинкам
-const card = function (item) {
+const createCard = function (item) {
   const pictureElement = itemTemplate.cloneNode(true);
   const templateElementPicture =
     pictureElement.querySelector(".elements__image");
@@ -55,7 +61,7 @@ const card = function (item) {
   templateElementPicture.src = item.link;
   templateElementPicture.alt = item.alt;
   templateElementName.textContent = item.name;
-  closePopup(elementAddPicture);
+  closePopup(popupAddPicture);
   // Добавление лайков
   pictureElement
     .querySelector(".elements__button")
@@ -70,21 +76,14 @@ const card = function (item) {
     });
   // Открытие попапа увеличенных фото
   templateElementPicture.addEventListener("click", function () {
-    onAllscreenImage.src = item.link;
-    onAllscreenImage.alt = item.alt;
-    onAllscreenText.textContent = item.name;
-    const openPicture = function () {
-      popapForImage.classList.add("popupForImage_active");
-    };
-    openPicture();
+    zoomPicture.src = item.link;
+    zoomPicture.alt = item.alt;
+    figcaptionPicture.textContent = item.name;
+    openPopup(popapForImage);
   });
   // Возвращаем
   return pictureElement;
 };
-// Закрытие увеличенных фото
-closePopupBigPicture.addEventListener("click", function () {
-  popapForImage.classList.remove("popupForImage_active");
-});
 // Куда хотим их разместить
 const addOnPage = function (item) {
   cardsContainer.prepend(item);
@@ -118,25 +117,24 @@ const initialCards = [
 ];
 // Вставляем данные картинки
 initialCards.forEach((item) => {
-  addOnPage(card(item));
+  addOnPage(createCard(item));
 });
 // Отправка данных для кнопки редактирования
-function handleFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   valueNameInput.textContent = nameInput.value;
   valueJobInput.textContent = jobInput.value;
-  closePopup(popupElement);
+  closePopup(popupEditProfile);
 }
-formElement.addEventListener("submit", handleFormSubmit);
+formElement.addEventListener("submit", handleProfileFormSubmit);
 // Отправка данных для добавление фотографии
 formPicture.addEventListener("submit", addCardOnPage);
 function addCardOnPage(event) {
   event.preventDefault();
   const newPicture = {
-    name: pictureToSend.value,
-    link: linkPictureToSend.value,
+    name: titleInput.value,
+    link: linkInput.value,
   };
-  addOnPage(card(newPicture));
+  addOnPage(createCard(newPicture));
   formPicture.reset();
 }
-

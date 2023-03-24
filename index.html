@@ -32,20 +32,20 @@
       <p class="footer__copyright">© 2023 Mesto Russia</p>
     </footer>
     <!-- Попап редакктирование профиля-->
-    <section class="popup">
+    <section class="popup popupEditProfile">
       <div class="popup__container">
         <button type="button" class="popup__close"></button>
         <form class="popup__form" name="popapForm">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input
-            class="popup__name popup__name_type_name"
-            id="popup__name"
+            class="popup__input popup__name_type_name"
+            id="popup__name_type_name"
             type="text"
             placeholder="Ваше имя"
           />
           <input
-            class="popup__job popup__job_type_job"
-            id="popup__job"
+            class="popup__input popup__job_type_job"
+            id="popup__job_type_job"
             type="text"
             placeholder="Чем занимаетесь"
           />
@@ -56,29 +56,29 @@
     <!-- Попап добавления picture -->
     <section class="popup popupAddPicture">
       <div class="popup__container">
-        <button type="button" class="popupAddPicture__close"></button>
-        <form class="popupAddPicture__form" name="popapForm_addPicture">
-          <h2 class="popupAddPicture__title">Новое место</h2>
+        <button type="button" class="popup__close"></button>
+        <form class="popup__form" name="popapForm_addPicture">
+          <h2 class="popup__title">Новое место</h2>
           <input
-            class="popupAddPicture__addPictureName popupAddPicture__addPictureName_type_name"
-            id="popupAddPicture__addPicture-name"
+            class="popup__input popup__input_type_title"
+            id="popup__input_type_title"
             type="text"
             placeholder="Название"
           />
           <input
-            class="popupAddPicture__addPictureLink popupAddPicture__addPictureLink_type_link"
-            id="popup__link_addPicture"
+            class="popup__input popup__input_type_link"
+            id="popup__input_type_link"
             type="text"
             placeholder="Ссылка на картинку"
           />
-          <button type="submit" class="popupAddPicture__submit">Создать</button>
+          <button type="submit" class="popup__submit-button">Создать</button>
         </form>
       </div>
     </section>
     <!-- Увеличенное изображение -->
     <section class="popup popupForImage">
       <div class="popupForImage__container">
-        <button type="button" class="popupForImage__close"></button>
+        <button type="button" class="popup__close"></button>
         <figure>
           <img src="#" alt="#" class="popupForImage__image" />
           <figcaption class="popupForImage__figcaption"></figcaption>
