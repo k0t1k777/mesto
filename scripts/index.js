@@ -5,10 +5,10 @@ const valueNameInput = document.querySelector(".section-title");
 const valueJobInput = document.querySelector(".section-subtitle");
 // Переменные форм
 const popupEditProfile = document.querySelector(".popupEditProfile");
-const profileCloseButtons = document.querySelectorAll(".popup__close");
-const formElement = popupEditProfile.querySelector(".popup__form");
-const nameInput = formElement.querySelector(".popup__input_type_name");
-const jobInput = formElement.querySelector(".popup__input_type_job");
+const closeButtons = document.querySelectorAll(".popup__close");
+const profileForm = popupEditProfile.querySelector(".popup__form");
+const nameInput = profileForm.querySelector(".popup__input_type_name");
+const jobInput = profileForm.querySelector(".popup__input_type_job");
 // Переменные с увеличения картинок
 const popapForImage = document.querySelector(".popupForImage");
 const zoomPicture = popapForImage.querySelector(".popupForImage__image");
@@ -17,7 +17,7 @@ const figcaptionPicture = popapForImage.querySelector(
 );
 // Переменные добавления картинки
 const popupAddPicture = document.querySelector(".popupAddPicture");
-const formPicture = popupAddPicture.querySelector(".popup__form");
+const pictureForm = popupAddPicture.querySelector(".popup__form");
 const titleInput = popupAddPicture.querySelector(".popup__input_type_title");
 const linkInput = popupAddPicture.querySelector(".popup__input_type_link");
 // Переменные темплейта
@@ -30,17 +30,9 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
 }
-profileCloseButtons.forEach((element) => {
-  const popup = element.closest(".popup");
-  element.addEventListener("click", () => closePopup(popupEditProfile));
-});
-profileCloseButtons.forEach((element) => {
-  const popup = element.closest(".popup");
-  element.addEventListener("click", () => closePopup(popupAddPicture));
-});
-profileCloseButtons.forEach((element) => {
-  const popup = element.closest(".popup");
-  element.addEventListener("click", () => closePopup(popapForImage));
+closeButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
 });
 // Открытие попапа для профиля
 profileOpenButton.addEventListener("click", function () {
@@ -126,9 +118,9 @@ function handleProfileFormSubmit(evt) {
   valueJobInput.textContent = jobInput.value;
   closePopup(popupEditProfile);
 }
-formElement.addEventListener("submit", handleProfileFormSubmit);
+profileForm.addEventListener("submit", handleProfileFormSubmit);
 // Отправка данных для добавление фотографии
-formPicture.addEventListener("submit", addCardOnPage);
+pictureForm.addEventListener("submit", addCardOnPage);
 function addCardOnPage(event) {
   event.preventDefault();
   const newPicture = {
@@ -136,5 +128,5 @@ function addCardOnPage(event) {
     link: linkInput.value,
   };
   addOnPage(createCard(newPicture));
-  formPicture.reset();
+  pictureForm.reset();
 }
