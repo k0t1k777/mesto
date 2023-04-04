@@ -27,31 +27,13 @@ const itemTemplate = document.querySelector("#template").content;
 // Открытие/закрытие попапов
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener("keydown", closePopupOnEsc);
 }
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closePopupOnEsc);
 }
-// Функция закрытия попапа по Escape
-function closePopupOnEsc(evt) {
-  if (evt.key === "Escape") {
-    const popup = document.querySelector(".popup_opened");
-    closePopup(popup);
-  }
-}
-// Функция закрытия попапа по оверлею
-const closePopupOnOverlay = function (event) {
-  if (event.target === event.currentTarget) {
-    closePopup(event.target);
-  }
-};
-popupElements.forEach((item) => {
-  item.addEventListener("click", closePopupOnOverlay);
-});
 closeButtons.forEach((button) => {
-  const popup = button.closest(".popup");
-  button.addEventListener("click", () => closePopup(popup));
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
 });
 // Открытие попапа для профиля
 profileOpenButton.addEventListener("click", function () {

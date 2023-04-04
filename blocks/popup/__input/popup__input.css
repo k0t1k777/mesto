@@ -20,11 +20,10 @@
     margin: 0;
   } */
 
-  /* 540 */
-  @media screen and (max-width: 540px) {
-    .popup__input:last-of-type {
-      /* margin-top: 75px;
-      width: 238px; */
-      margin-bottom: 0;
-      }
+/* 540 */
+@media screen and (max-width: 540px) {
+  .popup__input {
+    margin-top: 75px;
+    width: 238px;
     }
+  }
