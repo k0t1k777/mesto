@@ -33,3 +33,32 @@
 @import url(../blocks/popupForImage/__container/popupForImage__container.css);
 @import url(../blocks/popupForImage/__image/popupForImage__image.css);
 @import url(../blocks/popupForImage/__figcaption/popupForImage__figcaption.css);
+
+.popup__wrapper {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 60px;
+  margin-bottom: 5px;
+}
+
+
+.popup-error {
+  margin: 0;
+  padding: 0;
+  color: red;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  visibility: hidden;
+  }
+.popup__error_visible {
+  visibility: visible;
+}
+
+
+
+
+/* .popup__textError:last-of-type   {} */
+
+

@@ -1,24 +1,30 @@
-.popup__input {
-  margin: 0 0 40px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  font-size: 14px;
-  line-height: 17px;
-  width: 100%;
-  border-bottom: 1px solid #000000;
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
-  padding: 0 0 10px 0;
-}
-
-popup__input:last-of-type {
-  margin: 0;
-}
-
-/* 540 */
-@media screen and (max-width: 540px) {
   .popup__input {
-    margin-top: 75px;
-    width: 238px;
-    }
+    /* margin: 0 0 30px; */
+    margin: 0 0 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 14px;
+    line-height: 17px;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    padding: 0 0 10px 0;
   }
+
+
+  .popup__input_type_error {
+    border-bottom: 1px solid red;
+  }
+
+  /* .popup__input:last-of-type {
+    margin: 0;
+  } */
+
+  /* 540 */
+  @media screen and (max-width: 540px) {
+    .popup__input:last-of-type {
+      /* margin-top: 75px;
+      width: 238px; */
+      margin-bottom: 0;
+      }
+    }

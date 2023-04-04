@@ -4,19 +4,30 @@
   font-size: 18px;
   line-height: 22px;
   font-weight: 400;
-  background-color: black;
+  background-color: white;
   border-radius: 2px;
   border: none;
-  color: white;
+  color: black;
   width: 100%;
   height: 50px;
   cursor: pointer;
 }
 
+.popup__submit-button_valid {
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+}
+
+.popup__submit-button_invalid {
+  border: 1px solid rgba(0, 0, 0, .2);
+  color: rgba(0, 0, 0, .5);
+  background-color: #e9e9e9;
+}
+
 /* 540 */
 @media screen and (max-width: 540px) {
   .popup__submit-button {
-    margin-top: 45px;
     font-size: 14px;
     line-height: 17px;
     padding-bottom: 14px;
