@@ -2,7 +2,7 @@
   font-size: 24px;
   line-height: 29px;
   font-weight: 900;
-  margin: 0 0 54px;
+  margin: 0 0 46px;
   padding: 0;
 }
 
@@ -11,5 +11,5 @@
   .popup__title {
     font-size: 18px;
     line-height: 22px;
-    }
   }
+}

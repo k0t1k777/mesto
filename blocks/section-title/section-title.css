@@ -16,14 +16,14 @@
     font-size: 27px;
     line-height: 33px;
     max-width: 230px;
-    }
   }
+}
 
 /* 583px */
 @media screen and (max-width: 583px) {
   .section-title {
-   margin: 22px auto 14px;
-   max-width: 189px;
-   transform: translateX(11px);
-    }
+    margin: 22px auto 14px;
+    max-width: 189px;
+    transform: translateX(11px);
   }
+}

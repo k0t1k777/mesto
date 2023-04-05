@@ -13,9 +13,9 @@
 }
 
 .profile__edit-button:hover {
-  opacity: .6;
+  opacity: 0.6;
   transition: opacity 0.3s linear;
-  }
+}
 
 /* 583px */
 @media screen and (max-width: 583px) {
@@ -26,5 +26,5 @@
     margin: 0 auto 0 10px;
     transform: translate(11px, 5px);
     background-size: 7.5px, 7.5px;
-    }
+  }
 }
