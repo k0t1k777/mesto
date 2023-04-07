@@ -28,9 +28,6 @@ const setEventListeners = (
     disableButton(formButton, rest);
     input.addEventListener("input", () => {
       checkInputValidity(input, rest);
-
-      // toggleButtonState(input, button, disableButton)
-
       if (hasInvalidInput(formInputs)) {
         disableButton(formButton, rest);
       } else {
@@ -83,5 +80,4 @@ const disableButton = (button, { inactiveButtonClass, activeButtonClass }) => {
   button.classList.remove(activeButtonClass);
   button.setAttribute("disabled", "disabled");
 };
-
 enableValidation(validationConfig);

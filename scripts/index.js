@@ -51,7 +51,7 @@ const closePopupOnOverlay = function (event) {
   }
 };
 popupElements.forEach((item) => {
-  item.addEventListener("click", closePopupOnOverlay);
+  item.addEventListener("mousedown", closePopupOnOverlay);
 });
 // Открытие попапа для профиля
 profileOpenButton.addEventListener("click", function () {
@@ -140,15 +140,16 @@ function handleProfileFormSubmit(evt) {
 profileForm.addEventListener("submit", handleProfileFormSubmit);
 // Отправка данных для добавление фотографии
 pictureForm.addEventListener("submit", addCardOnPage);
+
+// Тут
 function addCardOnPage(event) {
   event.preventDefault();
-  const buttonSubmit = document.querySelector('.popup__submit-button');
+  const buttonSubmit = pictureForm.querySelector(".popup__submit-button");
   disableButton(buttonSubmit, validationConfig);
   const newPicture = {
     name: titleInput.value,
     link: linkInput.value,
   };
-  pictureForm.addEventListener('submit', pictureForm);
   addOnPage(createCard(newPicture));
   pictureForm.reset();
 }

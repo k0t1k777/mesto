@@ -38,30 +38,35 @@
         <form class="popup__form" name="popapForm" novalidate>
           <h2 class="popup__title">Редактировать профиль</h2>
           <div class="popup__wrapper">
-          <input
-            class="popup__input popup__input_type_name"
-            id="popup__name"
-            type="text"
-            placeholder="Ваше имя"
-            minlength="2"
-            maxlength="40"
-            required
-          />
-          <span class="popup__error" id="popup__name-error"></span>
-        </div>
+            <input
+              class="popup__input popup__input_type_name"
+              id="popup__name"
+              type="text"
+              placeholder="Ваше имя"
+              minlength="2"
+              maxlength="40"
+              required
+            />
+            <span class="popup__error" id="popup__name-error"></span>
+          </div>
           <div class="popup__wrapper">
-          <input
-            class="popup__input popup__input_type_job"
-            id="popup__job"
-            type="text"
-            placeholder="Чем занимаетесь"
-            minlength="2"
-            maxlength="200"
-            required
-          />
-          <span class="popup__error" id="popup__job-error"></span>
-        </div>
-        <button type="submit" class="popup__submit-button popup__submit-button_valid">Сохранить</button>
+            <input
+              class="popup__input popup__input_type_job"
+              id="popup__job"
+              type="text"
+              placeholder="Чем занимаетесь"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span class="popup__error" id="popup__job-error"></span>
+          </div>
+          <button
+            type="submit"
+            class="popup__submit-button popup__submit-button_valid"
+          >
+            Сохранить
+          </button>
         </form>
       </div>
     </section>
@@ -72,28 +77,33 @@
         <form class="popup__form" name="popapForm_addPicture" novalidate>
           <h2 class="popup__title">Новое место</h2>
           <div class="popup__wrapper">
-          <input
-            class="popup__input popup__input_type_title"
-            id="popup__title"
-            type="text"
-            placeholder="Название"
-            minlength="2"
-            maxlength="30"
-            required
-          />
-          <span class="popup__error" id="popup__title-error"></span>
-        </div>
+            <input
+              class="popup__input popup__input_type_title"
+              id="popup__title"
+              type="text"
+              placeholder="Название"
+              minlength="2"
+              maxlength="30"
+              required
+            />
+            <span class="popup__error" id="popup__title-error"></span>
+          </div>
           <div class="popup__wrapper">
             <input
-            class="popup__input popup__input_type_link"
-            id="popup__link"
-            type="url"
-            placeholder="Ссылка на картинку"
-            required
-          />
-          <span class="popup__error" id="popup__link-error"></span>
-        </div>
-          <button type="submit" class="popup__submit-button popup__submit-button_valid">Создать</button>
+              class="popup__input popup__input_type_link"
+              id="popup__link"
+              type="url"
+              placeholder="Ссылка на картинку"
+              required
+            />
+            <span class="popup__error" id="popup__link-error"></span>
+          </div>
+          <button
+            type="submit"
+            class="popup__submit-button popup__submit-button_valid"
+          >
+            Создать
+          </button>
         </form>
       </div>
     </section>
@@ -118,20 +128,7 @@
         </div>
       </div>
     </template>
-    <script src="./scripts/index.js"></script>
-
     <script src="./scripts/validate.js"></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
-<!-- // деактивируем кнопку при 1й загрузке сайта
-// function toggleButtonState(formInputs, button, disableButton, formButton) {
-//   hasInvalidInput(formInputs) ? disableButton(formButton, disableButton) : enableButton(formButton, disableButton)
-
-
-
-//   if (hasInvalidInput(checkInputValidity, formInputs)) {
-//     disableButton(button, disableButton);
-//   } else {
-//     enableButton(button, disableButton);
-// }
-// } -->
