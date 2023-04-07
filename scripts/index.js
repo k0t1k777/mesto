@@ -142,10 +142,13 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 pictureForm.addEventListener("submit", addCardOnPage);
 function addCardOnPage(event) {
   event.preventDefault();
+  const buttonSubmit = document.querySelector('.popup__submit-button');
+  disableButton(buttonSubmit, validationConfig);
   const newPicture = {
     name: titleInput.value,
     link: linkInput.value,
   };
+  pictureForm.addEventListener('submit', pictureForm);
   addOnPage(createCard(newPicture));
   pictureForm.reset();
 }

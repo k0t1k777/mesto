@@ -28,6 +28,9 @@ const setEventListeners = (
     disableButton(formButton, rest);
     input.addEventListener("input", () => {
       checkInputValidity(input, rest);
+
+      // toggleButtonState(input, button, disableButton)
+
       if (hasInvalidInput(formInputs)) {
         disableButton(formButton, rest);
       } else {
@@ -69,7 +72,7 @@ const checkInputValidity = (input, rest) => {
 const hasInvalidInput = (formInputs) => {
   return formInputs.some((item) => !item.validity.valid);
 };
-// Активнеая/неактивная кнопка
+// Активная/неактивная кнопка
 const enableButton = (button, { inactiveButtonClass, activeButtonClass }) => {
   button.classList.remove(inactiveButtonClass);
   button.classList.add(activeButtonClass);
@@ -80,4 +83,5 @@ const disableButton = (button, { inactiveButtonClass, activeButtonClass }) => {
   button.classList.remove(activeButtonClass);
   button.setAttribute("disabled", "disabled");
 };
+
 enableValidation(validationConfig);
