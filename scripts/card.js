@@ -14,12 +14,11 @@ export default class Card {
   }
 
   _handleLike = () => {
-    // log(this)
-    this._cloneTemplateLike.classList.toggle("elements__button_active");
+    this.like.classList.toggle("elements__button_active");
   };
 
   _handleDelete = () => {
-    this._cloneTemplateUrn.closest(".elements__element").remove();
+    this.urn.closest(".elements__element").remove();
   };
 
   _handleCreateImage = () => {
@@ -27,25 +26,23 @@ export default class Card {
   };
 
   _setEventListener() {
-    this._cloneTemplateLike.addEventListener("click", this._handleLike);
-    this._cloneTemplateUrn.addEventListener("click", this._handleDelete);
-    this._cloneTemplateImage.addEventListener("click", this._handleCreateImage);
+    this.like.addEventListener("click", this._handleLike);
+    this.urn.addEventListener("click", this._handleDelete);
+    this.image.addEventListener("click", this._handleCreateImage);
   }
 
   createCard() {
     this._cloneTemplateElement = this._getTemplate();
-    this._cloneTemplateImage =
-      this._cloneTemplateElement.querySelector(".elements__image");
-    this._cloneTemplateUrn = this._cloneTemplateElement.querySelector(
+    this.image = this._cloneTemplateElement.querySelector(".elements__image");
+    this.urn = this._cloneTemplateElement.querySelector(
       ".elements__element_urn"
     );
-    this._cloneTemplateLike =
-      this._cloneTemplateElement.querySelector(".elements__button");
+    this.like = this._cloneTemplateElement.querySelector(".elements__button");
     this._cloneTemplateName =
       this._cloneTemplateElement.querySelector(".elements__name");
     this._cloneTemplateName.textContent = this._name;
-    this._cloneTemplateImage.src = this._link;
-    this._cloneTemplateImage.alt = this._name;
+    this.image.src = this._link;
+    this.image.alt = this._name;
     this._setEventListener();
     return this._cloneTemplateElement;
   }
