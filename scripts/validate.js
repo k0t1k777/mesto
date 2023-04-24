@@ -1,3 +1,4 @@
+const log = console.log
 const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
