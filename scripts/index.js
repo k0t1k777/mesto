@@ -1,7 +1,6 @@
 import initialCards from "./constants.js";
 import Card from "./card.js";
-
-const log = console.log;
+import FormValidator from "./FormValidator.js";
 // Переменные страницы
 const popupElements = document.querySelectorAll(".popup");
 const profileOpenButton = document.querySelector(".profile__edit-button");
@@ -25,12 +24,13 @@ const popupAddPicture = document.querySelector(".popupAddPicture");
 const pictureForm = popupAddPicture.querySelector(".popup__form");
 const titleInput = popupAddPicture.querySelector(".popup__input_type_title");
 const linkInput = popupAddPicture.querySelector(".popup__input_type_link");
-const buttonSubmit = pictureForm.querySelector(".popup__submit-button");
 // Переменные темплейта
 const cardsContainer = document.querySelector(".elements");
 const selectorTemplate = "#template";
 // Переменные валидации форм
-const allForms = document.forms
+const namePopupEditProfile = document.popapForm_editProfile;
+const namePopupAddPicture = document.popapForm_addPicture;
+// Объект с переменными
 const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -40,6 +40,18 @@ const validationConfig = {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 };
+// Экземпляр Попапа редактирования профиля
+const formPopupEditProfile = new FormValidator(
+  validationConfig,
+  namePopupEditProfile
+);
+formPopupEditProfile.enableValidation();
+// Экземпляр Попапа для добавления картинки
+const formPopupAddPicture = new FormValidator(
+  validationConfig,
+  namePopupAddPicture
+);
+formPopupAddPicture.enableValidation();
 // Открытие/закрытие попапов
 function openPopup(popup) {
   popup.classList.add("popup_opened");
@@ -71,12 +83,16 @@ popupElements.forEach((item) => {
 });
 // Открытие попапа для профиля
 profileOpenButton.addEventListener("click", function () {
+  namePopupEditProfile.reset();
+  formPopupEditProfile.resetError();
   nameInput.value = valueNameInput.textContent;
   jobInput.value = valueJobInput.textContent;
   openPopup(popupEditProfile);
 });
 // Открытие попапа для добавления фото
 profileAddButton.addEventListener("click", function () {
+  namePopupAddPicture.reset();
+  formPopupAddPicture.resetError();
   openPopup(popupAddPicture);
 });
 // Открытие попапа увеличенных фото
@@ -112,7 +128,6 @@ profileForm.addEventListener("submit", handleProfileFormSubmit);
 pictureForm.addEventListener("submit", addCardOnPage);
 function addCardOnPage(event) {
   event.preventDefault();
-  // disableButton(buttonSubmit, validationConfig);
   const newPicture = {
     name: titleInput.value,
     link: linkInput.value,
@@ -121,56 +136,3 @@ function addCardOnPage(event) {
   pictureForm.reset();
   closePopup(popupAddPicture);
 }
-class FormValidator {
- constructor(config, form) {
- this._formSelector = form;
- this._inputSelector = config.inputSelector;
- this._submitButtonSelector = config.submitButtonSelector;
- this._inactiveButtonClass = config.inactiveButtonClass;
- this._activeButtonClass = config.activeButtonClass;
- this._inputErrorClass = config.inputErrorClass;
- this._errorClass = config.errorClass;
-  }
-}
-_hideErrorMessage(input, error) {
-  input.classList.remove(inputErrorClass);
-  error.textContent = "";
-}
-_showErrorMessage(input, error) {
-  input.classList.add(inputErrorClass);
-  error.textContent = input.validationMessage;
-}
-_checkInputValidity(input) {
-  const error = this._form.querySelector(`${this._inputErrorClass}${input.name}`)
-  input.validity.valid ? this._hideErrorMessage(input, error) : this._showErrorMessage(input, error)
-  // checkInputValidity(input) {
-  //   if (this._hideErrorMessage()) {
-  //   } else {
-  //    this._showErrorMessage()
-  //   }
-  // }
-}
-_setEventListener() {
-  this._inputList.forEach(input => {
-    input.addEventListener("input", () => {
-      this._checkInputValidity(input);
-    })
-  })
-}
-enableValidation() {
-this._button = form.querySelector(this._submitButtonSelector);
-this._inputList = form.querySelectorAll(this._submitButtonSelector);
-this._setEventListener();
-}
-const formValidation = new FormValidator(config, allForms)
-
-
-
-
-// formSelector: ".popup__form",
-// inputSelector: ".popup__input",
-// submitButtonSelector: ".popup__submit-button",
-// inactiveButtonClass: "popup__submit-button_invalid",
-// activeButtonClass: "popup__submit-button_valid",
-// inputErrorClass: "popup__input_type_error",
-// errorClass: "popup__error_visible",

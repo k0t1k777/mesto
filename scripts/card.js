@@ -12,25 +12,20 @@ export default class Card {
       .content.querySelector(".elements__element")
       .cloneNode(true);
   }
-
   _handleLike = () => {
     this.like.classList.toggle("elements__button_active");
   };
-
   _handleDelete = () => {
     this.urn.closest(".elements__element").remove();
   };
-
   _handleCreateImage = () => {
     this._openImagePopup(this._item);
   };
-
   _setEventListener() {
     this.like.addEventListener("click", this._handleLike);
     this.urn.addEventListener("click", this._handleDelete);
     this.image.addEventListener("click", this._handleCreateImage);
   }
-
   createCard() {
     this._cloneTemplateElement = this._getTemplate();
     this.image = this._cloneTemplateElement.querySelector(".elements__image");
