@@ -5,32 +5,10 @@ import PopupWithImage from "./scripts/components/PopupWithImage.js";
 import Section from "./scripts/components/Section.js";
 import UserInfo from "./scripts/components/UserInfo.js";
 import PopupWithForm from "./scripts/components/PopupWithForm.js";
-const log = console.log;
 // Переменные страницы
-const popupElements = document.querySelectorAll(".popup");
 const profileOpenButton = document.querySelector(".profile__edit-button");
 const profileAddButton = document.querySelector(".profile__add-button");
-const valueNameInput = document.querySelector(".section-title");
-const valueJobInput = document.querySelector(".section-subtitle");
-// Переменные форм
-const popupEditProfile = document.querySelector(".popupEditProfile");
-const closeButtons = document.querySelectorAll(".popup__close");
-const profileForm = popupEditProfile.querySelector(".popup__form");
-// const nameInput = profileForm.querySelector(".popup__input_type_name");
-// const jobInput = profileForm.querySelector(".popup__input_type_job");
-// Переменные с увеличения картинок
-const popupForImage = document.querySelector(".popupForImage");
-const zoomPicture = popupForImage.querySelector(".popupForImage__image");
-const figcaptionPicture = popupForImage.querySelector(
-  ".popupForImage__figcaption"
-);
-// Переменные добавления картинки
-const popupAddPicture = document.querySelector(".popupAddPicture");
-const pictureForm = popupAddPicture.querySelector(".popup__form");
-const titleInput = popupAddPicture.querySelector(".popup__input_type_title");
-const linkInput = popupAddPicture.querySelector(".popup__input_type_link");
 // Переменные темплейта
-const cardsContainer = document.querySelector(".elements");
 const selectorTemplate = "#template";
 const popupEditProfileSelector = ".popupEditProfile";
 const popupImageSelector = ".popupForImage";
@@ -78,7 +56,7 @@ popupWithForm.setEventListeners();
 // Попап для добавления фото
 const popupForAddPicture = new PopupWithForm(popupAddPictureSelector, (evt) => {
   evt.preventDefault();
-  section.addItem(section.renderer(popupForAddPicture.getInputsValues()));
+  section.addItem(popupForAddPicture.getInputsValues());
   popupForAddPicture.close();
 });
 popupForAddPicture.setEventListeners();
@@ -90,7 +68,6 @@ profileAddButton.addEventListener("click", function () {
 });
 // Открытие попапа для профиля
 profileOpenButton.addEventListener("click", function () {
-  // namePopupEditProfile.reset();
   formValidator.resetError();
   popupWithForm.setInputsValues(userInfo.getUserInfo());
   popupWithForm.open();
