@@ -2,7 +2,7 @@ const log = console.log;
 export default class Popup {
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
-    this._closeButtons = this._popup.querySelector(".popup__close");
+    this._closeButton = this._popup.querySelector(".popup__close");
   }
   open() {
     this._popup.classList.add("popup_opened");
@@ -14,7 +14,7 @@ export default class Popup {
   }
   setEventListeners() {
     this._popup.addEventListener("click", this._handleClosePopupOnOverlay);
-    this._closeButtons.addEventListener("click", this._handleCloseButtons);
+    this._closeButton.addEventListener("click", this._handleCloseButtons);
   }
   _handleEscClose = (evt) => {
     if (evt.key === "Escape") {

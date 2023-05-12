@@ -1,38 +1,25 @@
 import './index.css';
-import initialCards from "../constants";
+import {
+profileOpenButton,
+profileAddButton,
+selectorTemplate,
+popupEditProfileSelector,
+popupImageSelector,
+popupAddPictureSelector,
+listsSelector,
+config,
+namePopupEditProfile,
+namePopupAddPicture,
+validationConfig,
+initialCards
+} from "../utils/constants";
 import Card from "../components/Card";
 import FormValidator from "../components/FormValidator.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-// Переменные страницы
-const profileOpenButton = document.querySelector(".profile__edit-button");
-const profileAddButton = document.querySelector(".profile__add-button");
-// Переменные темплейта
-const selectorTemplate = "#template";
-const popupEditProfileSelector = ".popupEditProfile";
-const popupImageSelector = ".popupForImage";
-const popupAddPictureSelector = ".popupAddPicture";
-const listsSelector = ".elements";
-// Переменные Section
-const config = {
-  nameInputSelector: ".section-title",
-  jobInputSelector: ".section-subtitle",
-};
-// Переменные валидации форм
-const namePopupEditProfile = document.popapForm_editProfile;
-const namePopupAddPicture = document.popapForm_addPicture;
-// Объект с переменными
-const validationConfig = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__submit-button",
-  inactiveButtonClass: "popup__submit-button_invalid",
-  activeButtonClass: "popup__submit-button_valid",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-};
+
 const userInfo = new UserInfo(config);
 const popupWithImage = new PopupWithImage(popupImageSelector);
 popupWithImage.setEventListeners();
@@ -46,7 +33,7 @@ const section = new Section(
   },
   listsSelector
 );
-section.addOnPage();
+section.renderItems();
 // Попап для редактирования профиля
 const popupWithForm = new PopupWithForm(popupEditProfileSelector, (evt) => {
   evt.preventDefault();
@@ -63,13 +50,12 @@ const popupForAddPicture = new PopupWithForm(popupAddPictureSelector, (evt) => {
 popupForAddPicture.setEventListeners();
 // Открытие попапа для добавления фото
 profileAddButton.addEventListener("click", function () {
-  namePopupAddPicture.reset();
-  formPopupAddPicture.resetError();
+  formPopupAddPicture.resetValidation();
   popupForAddPicture.open();
 });
 // Открытие попапа для профиля
 profileOpenButton.addEventListener("click", function () {
-  formValidator.resetError();
+  formValidator.resetValidation();
   popupWithForm.setInputsValues(userInfo.getUserInfo());
   popupWithForm.open();
 });

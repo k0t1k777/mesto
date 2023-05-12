@@ -57,7 +57,7 @@ export default class FormValidator {
     this._button.classList.remove(this._activeButtonClass);
     this._button.setAttribute("disabled", "disabled");
   };
-  resetError() {
+  resetValidation () {
     this._inputList.forEach((input) => {
       const error = this._form.querySelector(`#${input.id}-error`);
       if (!input.validity.valid) {

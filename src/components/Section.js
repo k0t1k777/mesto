@@ -5,7 +5,7 @@ export default class Section {
     this._renderer = renderer;
   }
   // Отрисовка всех элементов на странице
-  addOnPage() {
+  renderItems() {
     this._initialCards.forEach((element) => {
       this.addItem(element);
     });
