@@ -1,10 +1,11 @@
-import initialCards from "./scripts/utils/constants.js";
-import Card from "./scripts/components/Card.js";
-import FormValidator from "./scripts/components/FormValidator.js";
-import PopupWithImage from "./scripts/components/PopupWithImage.js";
-import Section from "./scripts/components/Section.js";
-import UserInfo from "./scripts/components/UserInfo.js";
-import PopupWithForm from "./scripts/components/PopupWithForm.js";
+import './index.css';
+import initialCards from "../constants";
+import Card from "../components/Card";
+import FormValidator from "../components/FormValidator.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 // Переменные страницы
 const profileOpenButton = document.querySelector(".profile__edit-button");
 const profileAddButton = document.querySelector(".profile__add-button");
