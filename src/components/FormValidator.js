@@ -21,6 +21,7 @@ export default class FormValidator {
       });
     });
   }
+  // Проверка валидности инпутов
   _checkInputValidity(input) {
     const error = this._form.querySelector(`#${input.id}-error`);
     input.validity.valid
@@ -57,6 +58,7 @@ export default class FormValidator {
     this._button.classList.remove(this._activeButtonClass);
     this._button.setAttribute("disabled", "disabled");
   };
+  // Сброс ошибок
   resetValidation () {
     this._inputList.forEach((input) => {
       const error = this._form.querySelector(`#${input.id}-error`);

@@ -11,12 +11,12 @@
     </header>
     <main class="container">
       <section class="profile">
-        <img
+        <button class="profile__avatar-btn" type="button"><img
           src="<%=require('./images/Jhak-Iv_kysto.jpg')%>"
           class="profile__avatar"
           alt="Аватарка Жак ива Кусто"
-        />
-        <div class="profile__info">
+        /></button>
+          <div class="profile__info">
           <div class="profile__wrapper">
             <h1 class="section-title">Жак-Ив Кусто</h1>
             <button type="button" class="profile__edit-button"></button>
@@ -120,6 +120,47 @@
         </figure>
       </div>
     </section>
+    <!-- Попап подтверждения -->
+    <section class="popup popupConfirm">
+      <div class="popup__container">
+        <button type="button" class="popup__close"></button>
+        <form class="popup__form" name="popapForm_editConfirm" novalidate>
+          <h2 class="popup__title">Вы уверены?</h2>
+          <button
+            type="submit"
+            class="popup__submit-button popup__submit-button_valid"
+          >
+            Да
+          </button>
+        </form>
+      </div>
+    </section>
+       <!-- Попап обновления аватара -->
+       <section class="popup popupRefreshAvatar">
+        <div class="popup__container">
+          <button type="button" class="popup__close"></button>
+          <form class="popup__form" name="popapForm_RefreshAvatar" novalidate>
+            <h2 class="popup__title">Обновить аватар</h2>
+              <div class="popup__wrapper">
+              <input
+                name="avatar"
+                class="popup__input popup__input_type_link"
+                id="avatar"
+                type="url"
+                placeholder="Ссылка на аватар"
+                required
+              />
+              <span class="popup__error" id="avatar-error"></span>
+            </div>
+            <button
+              type="submit"
+              class="popup__submit-button popup__submit-button_valid"
+            >
+              Сохранить
+            </button>
+          </form>
+        </div>
+      </section>
     <!-- <template> -->
     <template class="template" id="template">
       <div class="elements__element">

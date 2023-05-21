@@ -7,11 +7,11 @@ export default class Section {
   // Отрисовка всех элементов на странице
   renderItems() {
     this._initialCards.forEach((element) => {
-      this.addItem(element);
+      this._renderer(element);
     });
   }
   // Размещает на странице
   addItem(domElement) {
-    this._container.prepend(this._renderer(domElement));
+    this._container.prepend(domElement);
   }
 }
