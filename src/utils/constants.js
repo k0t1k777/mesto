@@ -9,11 +9,12 @@ const popupImageSelector = ".popupForImage";
 const popupAddPictureSelector = ".popupAddPicture";
 const listsSelector = ".elements";
 const popupRefreshAvatarSelecor = ".popupRefreshAvatar";
-const popupConfirmSelector = ".popupConfirm"
+const popupConfirmSelector = ".popupConfirm";
 // Переменные Section
 const config = {
   nameInputSelector: ".section-title",
   jobInputSelector: ".section-subtitle",
+  avatarSelector: ".profile__avatar",
 };
 // Переменные валидации форм
 const namePopupEditProfile = document.popapForm_editProfile;
@@ -29,33 +30,6 @@ const validationConfig = {
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error_visible",
 };
-// Массив с картинками
-const initialCards = [
-  {
-    title: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    title: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    title: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    title: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    title: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    title: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
 export {
   profileOpenButton,
   profileAddButton,
@@ -72,6 +46,4 @@ export {
   namePopupAddPicture,
   avatar,
   validationConfig,
-  initialCards,
-}
-
+};

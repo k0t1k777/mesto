@@ -1,21 +1,20 @@
-import './index.css';
+import "./index.css";
 import {
-profileOpenButton,
-profileAddButton,
-avatarBtn,
-selectorTemplate,
-popupEditProfileSelector,
-popupImageSelector,
-popupAddPictureSelector,
-listsSelector,
-popupRefreshAvatarSelecor,
-popupConfirmSelector,
-config,
-namePopupEditProfile,
-namePopupAddPicture,
-avatar,
-validationConfig,
-initialCards
+  profileOpenButton,
+  profileAddButton,
+  avatarBtn,
+  selectorTemplate,
+  popupEditProfileSelector,
+  popupImageSelector,
+  popupAddPictureSelector,
+  listsSelector,
+  popupRefreshAvatarSelecor,
+  popupConfirmSelector,
+  config,
+  namePopupEditProfile,
+  namePopupAddPicture,
+  avatar,
+  validationConfig,
 } from "../utils/constants";
 import Card from "../components/Card";
 import FormValidator from "../components/FormValidator.js";
@@ -23,42 +22,97 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import PopupConfirm from '../components/PopupConfirm';
+import PopupConfirm from "../components/PopupConfirm.js";
+import Api from "../components/Api.js";
+import { data } from "autoprefixer";
 
-const popupConfirm = new PopupConfirm(popupConfirmSelector, (card) => {
-  card.deleteCard();
-  popupConfirm.close();
-})
+const api = new Api({
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-66",
+  headers: {
+    authorization: "0c09e347-c633-4144-8e9c-eddcb83078fd",
+    "Content-Type": "application/json",
+  },
+});
+
+const popupConfirm = new PopupConfirm(
+  popupConfirmSelector,
+  ({ card, cardID }) => {
+    api
+      .removeCard(cardID)
+      .then((res) => {
+        console.log(res);
+        card.deleteCard();
+        popupConfirm.close();
+      })
+      .catch((error) => console.log(`Ошибка удаления карты${error}`))
+      .finally(() => popupConfirm.textLoading());
+  }
+);
 popupConfirm.setEventListeners();
 const userInfo = new UserInfo(config);
-
+// Экземпляр папапа с картинкой
 const popupWithImage = new PopupWithImage(popupImageSelector);
 popupWithImage.setEventListeners();
-function createNewCards (item) {
-  const card = new Card(item, selectorTemplate, popupWithImage.open, popupConfirm.open);
+function createNewCards(item) {
+  const card = new Card(
+    item,
+    selectorTemplate,
+    popupWithImage.open,
+    popupConfirm.open,
+    (likePic, cardID) => {
+      if (likePic.classList.contains("elements__button_active")) {
+        api
+          .removeLikes(cardID)
+          .then((res) => {
+            card._isLike(res.likes);
+          })
+          .catch((error) => console.log(`Ошибка при удалнии лайка${error}`));
+      } else {
+        api
+          .addLikes(cardID)
+          .then((res) => {
+            card._isLike(res.likes);
+          })
+          .catch((error) => console.log(`Ошибка добавления лайка${error}`));
+      }
+    }
+  );
   return card.createCard();
 }
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (item) => {
-      section.addItem(createNewCards(item))
-    },
-  },
-  listsSelector
-);
-section.renderItems();
+// Экземпляр класса Секция для отрисовки картинок на странице
+const section = new Section((item) => {
+  section.addItemLast(createNewCards(item));
+}, listsSelector);
 // Попап для редактирования профиля
-const popupWithForm = new PopupWithForm(popupEditProfileSelector, () => {
- userInfo.setUserInfo(popupWithForm._getInputsValues());
-  popupWithForm.close();
+const popupWithForm = new PopupWithForm(popupEditProfileSelector, (data) => {
+  api
+    .changeProfile(data)
+    .then((res) => {
+      userInfo.setUserInfo({
+        avatar: res.avatar,
+        userName: res.name,
+        userJob: res.about,
+      });
+      popupWithForm.close();
+    })
+    .catch((error) => console.log(`Ошибка редактирования профиля${error}`))
+    .finally(() => popupWithForm.textLoading());
 });
 popupWithForm.setEventListeners();
 // Попап для добавления фото
-const popupForAddPicture = new PopupWithForm(popupAddPictureSelector, (item) => {
-  section.addItem(createNewCards(item))
-  popupForAddPicture.close();
-});
+const popupForAddPicture = new PopupWithForm(
+  popupAddPictureSelector,
+  (item) => {
+    Promise.all([api.getInfoUser(), api.addNewCard(item)])
+      .then(([infoUser, infoCard]) => {
+        infoCard.myId = infoUser._id;
+        section.addItemFirst(createNewCards(infoCard));
+      })
+      .catch((error) => console.log(`Ошибка добавления картинки${error}`))
+      .finally(() => popupForAddPicture.textLoading());
+    popupForAddPicture.close();
+  }
+);
 popupForAddPicture.setEventListeners();
 // Открытие попапа для добавления фото
 profileAddButton.addEventListener("click", function () {
@@ -81,15 +135,39 @@ const formPopupAddPicture = new FormValidator(
 );
 formPopupAddPicture.enableValidation();
 // Экземпляр попапа для смены аватара
-const popupRefreshAvatar = new PopupWithForm(popupRefreshAvatarSelecor, (data) => {
-  document.querySelector(".profile__avatar").src = data.avatar;
-  popupRefreshAvatar.close();
-})
+const popupRefreshAvatar = new PopupWithForm(
+  popupRefreshAvatarSelecor,
+  (pic) => {
+    api
+      .changeAvatar(pic)
+      .then((res) => {
+        userInfo.setUserInfo({
+          avatar: res.avatar,
+          userName: res.name,
+          userJob: res.about,
+        });
+        popupRefreshAvatar.close();
+      })
+      .catch((error) => console.log(`Ошибка аватара${error}`))
+      .finally(() => popupRefreshAvatar.textLoading());
+  }
+);
 const formValidatorAvatar = new FormValidator(validationConfig, avatar);
 formValidatorAvatar.enableValidation();
 avatarBtn.addEventListener("click", function () {
   formValidatorAvatar.resetValidation();
   popupRefreshAvatar.open();
-})
+});
 popupRefreshAvatar.setEventListeners();
-// console.log(popupRefreshAvatar)
+
+Promise.all([api.getInfoUser(), api.getInitialCards()])
+  .then(([infoUser, infoCard]) => {
+    infoCard.forEach((card) => (card.selfId = infoUser._id));
+    userInfo.setUserInfo({
+      avatar: infoUser.avatar,
+      userName: infoUser.name,
+      userJob: infoUser.about,
+    });
+    section.renderItems(infoCard);
+  })
+  .catch((error) => console.log(`Ошибка ${error}`))

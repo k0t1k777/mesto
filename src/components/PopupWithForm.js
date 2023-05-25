@@ -5,23 +5,33 @@ export default class PopupWithForm extends Popup {
     this._submitForm = submitForm;
     this._form = this._popup.querySelector(".popup__form");
     this._inputsList = this._form.querySelectorAll(".popup__input");
+    this._submitBtn = this._form.querySelector(".popup__submit-button");
+    this._submitBtnNew = this._submitBtn.textContent;
+    console.log(this._submitBtn);
   }
   close() {
     super.close();
     this._form.reset();
   }
+  // Сабмит формы
   setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      this._submitBtn.textContent = `Сохранение...`;
       this._submitForm(this._getInputsValues());
-    })
+    });
+  }
+  // "..." при загрузке
+  textLoading() {
+    this._submitBtn.textContent = this._submitBtnNew;
   }
   setInputsValues(dataUser) {
     this._inputsList.forEach((input) => {
       input.value = dataUser[input.name];
     });
   }
+  // Значения Инпутов
   _getInputsValues() {
     this._values = {};
     this._inputsList.forEach((input) => {
