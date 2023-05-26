@@ -33,6 +33,7 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+let userId;
 
 const popupConfirm = new PopupConfirm(
   popupConfirmSelector,
@@ -44,7 +45,7 @@ const popupConfirm = new PopupConfirm(
         card.deleteCard();
         popupConfirm.close();
       })
-      .catch((error) => console.log(`Ошибка удаления карты${error}`))
+      .catch((error) => console.error(`Ошибка удаления карты${error}`))
       .finally(() => popupConfirm.textLoading());
   }
 );
@@ -64,16 +65,16 @@ function createNewCards(item) {
         api
           .removeLikes(cardID)
           .then((res) => {
-            card._isLike(res.likes);
+            card.isLike(res.likes);
           })
-          .catch((error) => console.log(`Ошибка при удалнии лайка${error}`));
+          .catch((error) => console.error(`Ошибка при удалнии лайка${error}`));
       } else {
         api
           .addLikes(cardID)
           .then((res) => {
-            card._isLike(res.likes);
+            card.isLike(res.likes);
           })
-          .catch((error) => console.log(`Ошибка добавления лайка${error}`));
+          .catch((error) => console.error(`Ошибка добавления лайка${error}`));
       }
     }
   );
@@ -95,7 +96,7 @@ const popupWithForm = new PopupWithForm(popupEditProfileSelector, (data) => {
       });
       popupWithForm.close();
     })
-    .catch((error) => console.log(`Ошибка редактирования профиля${error}`))
+    .catch((error) => console.error(`Ошибка редактирования профиля${error}`))
     .finally(() => popupWithForm.textLoading());
 });
 popupWithForm.setEventListeners();
@@ -103,12 +104,13 @@ popupWithForm.setEventListeners();
 const popupForAddPicture = new PopupWithForm(
   popupAddPictureSelector,
   (item) => {
-    Promise.all([api.getInfoUser(), api.addNewCard(item)])
-      .then(([infoUser, infoCard]) => {
-        infoCard.myId = infoUser._id;
+    api
+      .addNewCard(item)
+      .then((infoCard) => {
+        infoCard.selfId = userId;
         section.addItemFirst(createNewCards(infoCard));
       })
-      .catch((error) => console.log(`Ошибка добавления картинки${error}`))
+      .catch((error) => console.error(`Ошибка добавления картинки${error}`))
       .finally(() => popupForAddPicture.textLoading());
     popupForAddPicture.close();
   }
@@ -148,7 +150,7 @@ const popupRefreshAvatar = new PopupWithForm(
         });
         popupRefreshAvatar.close();
       })
-      .catch((error) => console.log(`Ошибка аватара${error}`))
+      .catch((error) => console.error(`Ошибка аватара${error}`))
       .finally(() => popupRefreshAvatar.textLoading());
   }
 );
@@ -162,7 +164,8 @@ popupRefreshAvatar.setEventListeners();
 
 Promise.all([api.getInfoUser(), api.getInitialCards()])
   .then(([infoUser, infoCard]) => {
-    infoCard.forEach((card) => (card.selfId = infoUser._id));
+    userId = infoUser._id;
+    infoCard.forEach(card => card.selfId = userId);
     userInfo.setUserInfo({
       avatar: infoUser.avatar,
       userName: infoUser.name,
@@ -170,4 +173,4 @@ Promise.all([api.getInfoUser(), api.getInitialCards()])
     });
     section.renderItems(infoCard);
   })
-  .catch((error) => console.log(`Ошибка ${error}`))
+  .catch((error) => console.error(`Ошибка ${error}`));

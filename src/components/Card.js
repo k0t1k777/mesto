@@ -39,7 +39,7 @@ export default class Card {
     this._count.textContent = this._likesLength;
   }
   // Тогл лайков
-  _isLike(likes) {
+  isLike(likes) {
     this._like.classList.toggle("elements__button_active");
     this._count.textContent = likes.length;
   }
