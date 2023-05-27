@@ -109,10 +109,10 @@ const popupForAddPicture = new PopupWithForm(
       .then((infoCard) => {
         infoCard.selfId = userId;
         section.addItemFirst(createNewCards(infoCard));
+        popupForAddPicture.close();
       })
       .catch((error) => console.error(`Ошибка добавления картинки${error}`))
       .finally(() => popupForAddPicture.textLoading());
-    popupForAddPicture.close();
   }
 );
 popupForAddPicture.setEventListeners();
